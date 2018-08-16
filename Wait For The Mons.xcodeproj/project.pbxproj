@@ -8,22 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		511741E421227B9F00B9017B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741E321227B9F00B9017B /* AppDelegate.swift */; };
-		511741E621227B9F00B9017B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741E521227B9F00B9017B /* ViewController.swift */; };
+		511741E621227B9F00B9017B /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741E521227B9F00B9017B /* MainMenuViewController.swift */; };
 		511741E921227B9F00B9017B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511741E721227B9F00B9017B /* Main.storyboard */; };
-		511741EC21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 511741EA21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodeld */; };
+		511741EC21227B9F00B9017B /* WaitForTheMons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 511741EA21227B9F00B9017B /* WaitForTheMons.xcdatamodeld */; };
 		511741EE21227BA200B9017B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511741ED21227BA200B9017B /* Assets.xcassets */; };
 		511741F121227BA200B9017B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511741EF21227BA200B9017B /* LaunchScreen.storyboard */; };
+		511741F92124A95C00B9017B /* AllMonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741F82124A95C00B9017B /* AllMonsViewController.swift */; };
+		511741FE2124A9C000B9017B /* MonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741FD2124A9C000B9017B /* MonDetailViewController.swift */; };
+		512ED4E021253AA9009C6522 /* EggSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */; };
+		512ED4E221253B1D009C6522 /* EggDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E121253B1D009C6522 /* EggDetailViewController.swift */; };
+		512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */; };
+		512ED4E621253F56009C6522 /* MonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E521253F56009C6522 /* MonCell.swift */; };
+		512ED4E821254667009C6522 /* EggCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E721254667009C6522 /* EggCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		511741E021227B9F00B9017B /* Wait For The Mons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait For The Mons.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511741E321227B9F00B9017B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		511741E521227B9F00B9017B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		511741E521227B9F00B9017B /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		511741E821227B9F00B9017B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		511741EB21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wait_For_The_Mons.xcdatamodel; sourceTree = "<group>"; };
 		511741ED21227BA200B9017B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		511741F021227BA200B9017B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511741F221227BA200B9017B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		511741F82124A95C00B9017B /* AllMonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMonsViewController.swift; sourceTree = "<group>"; };
+		511741FD2124A9C000B9017B /* MonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonDetailViewController.swift; sourceTree = "<group>"; };
+		512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggSelectionViewController.swift; sourceTree = "<group>"; };
+		512ED4E121253B1D009C6522 /* EggDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggDetailViewController.swift; sourceTree = "<group>"; };
+		512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHatchViewController.swift; sourceTree = "<group>"; };
+		512ED4E521253F56009C6522 /* MonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonCell.swift; sourceTree = "<group>"; };
+		512ED4E721254667009C6522 /* EggCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,8 +54,11 @@
 		511741D721227B9F00B9017B = {
 			isa = PBXGroup;
 			children = (
-				511741E221227B9F00B9017B /* Wait For The Mons */,
 				511741E121227B9F00B9017B /* Products */,
+				511741FB2124A97900B9017B /* WFTMModels */,
+				511741FA2124A96A00B9017B /* WFTMViews */,
+				511741E221227B9F00B9017B /* WFTMViewControllers */,
+				511741FF2124ACFF00B9017B /* SupportFiles */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,18 +70,46 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		511741E221227B9F00B9017B /* Wait For The Mons */ = {
+		511741E221227B9F00B9017B /* WFTMViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				511741E321227B9F00B9017B /* AppDelegate.swift */,
-				511741E521227B9F00B9017B /* ViewController.swift */,
-				511741E721227B9F00B9017B /* Main.storyboard */,
-				511741ED21227BA200B9017B /* Assets.xcassets */,
-				511741EF21227BA200B9017B /* LaunchScreen.storyboard */,
-				511741F221227BA200B9017B /* Info.plist */,
-				511741EA21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodeld */,
+				511741E521227B9F00B9017B /* MainMenuViewController.swift */,
+				511741F82124A95C00B9017B /* AllMonsViewController.swift */,
+				511741FD2124A9C000B9017B /* MonDetailViewController.swift */,
+				512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */,
+				512ED4E121253B1D009C6522 /* EggDetailViewController.swift */,
+				512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */,
 			);
-			path = "Wait For The Mons";
+			path = WFTMViewControllers;
+			sourceTree = "<group>";
+		};
+		511741FA2124A96A00B9017B /* WFTMViews */ = {
+			isa = PBXGroup;
+			children = (
+				511741EF21227BA200B9017B /* LaunchScreen.storyboard */,
+				511741E721227B9F00B9017B /* Main.storyboard */,
+				512ED4E521253F56009C6522 /* MonCell.swift */,
+				512ED4E721254667009C6522 /* EggCell.swift */,
+			);
+			path = WFTMViews;
+			sourceTree = "<group>";
+		};
+		511741FB2124A97900B9017B /* WFTMModels */ = {
+			isa = PBXGroup;
+			children = (
+				511741EA21227B9F00B9017B /* WaitForTheMons.xcdatamodeld */,
+				511741E321227B9F00B9017B /* AppDelegate.swift */,
+			);
+			path = WFTMModels;
+			sourceTree = "<group>";
+		};
+		511741FF2124ACFF00B9017B /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				511741F221227BA200B9017B /* Info.plist */,
+				511741ED21227BA200B9017B /* Assets.xcassets */,
+			);
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				511741EC21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodeld in Sources */,
-				511741E621227B9F00B9017B /* ViewController.swift in Sources */,
+				512ED4E621253F56009C6522 /* MonCell.swift in Sources */,
+				512ED4E221253B1D009C6522 /* EggDetailViewController.swift in Sources */,
+				511741EC21227B9F00B9017B /* WaitForTheMons.xcdatamodeld in Sources */,
+				511741E621227B9F00B9017B /* MainMenuViewController.swift in Sources */,
+				512ED4E021253AA9009C6522 /* EggSelectionViewController.swift in Sources */,
+				511741FE2124A9C000B9017B /* MonDetailViewController.swift in Sources */,
+				512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */,
+				512ED4E821254667009C6522 /* EggCell.swift in Sources */,
 				511741E421227B9F00B9017B /* AppDelegate.swift in Sources */,
+				511741F92124A95C00B9017B /* AllMonsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,13 +390,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		511741EA21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodeld */ = {
+		511741EA21227B9F00B9017B /* WaitForTheMons.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				511741EB21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodel */,
 			);
 			currentVersion = 511741EB21227B9F00B9017B /* Wait_For_The_Mons.xcdatamodel */;
-			path = Wait_For_The_Mons.xcdatamodeld;
+			path = WaitForTheMons.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
