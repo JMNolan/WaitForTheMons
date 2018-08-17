@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="-224"/>
+            <point key="canvasLocation" x="2058" y="-224"/>
         </scene>
         <!--Egg Detail View Controller-->
         <scene sceneID="V4u-F0-2eN">
@@ -143,7 +143,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbh-WB-PCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1128.8" y="-998.05097451274366"/>
+            <point key="canvasLocation" x="2058" y="-998"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ip4-xH-Qge">
+            <objects>
+                <navigationController id="8gu-jK-29X" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6pf-Xr-ABf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hkb-91-kV1" kind="relationship" relationship="rootViewController" id="qcZ-Rn-OKw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HsN-Ft-gbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="-224"/>
         </scene>
         <!--All Mons View Controller-->
         <scene sceneID="gCv-DJ-2JC">
@@ -184,13 +200,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dpR-zf-ybL"/>
                     </view>
+                    <navigationItem key="navigationItem" id="l6t-IU-AGz"/>
                     <connections>
                         <outlet property="monCollectionView" destination="TXm-bc-FAo" id="4hB-iZ-Wza"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C55-KP-ESF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="-224"/>
+            <point key="canvasLocation" x="1129" y="-224"/>
         </scene>
         <!--Main Menu View Controller-->
         <scene sceneID="sWn-nh-FvT">
@@ -235,11 +252,13 @@
                         <outlet property="eggsButton" destination="jWB-3X-NQX" id="WJt-SR-Bw1"/>
                         <outlet property="monsButton" destination="b0d-Xx-Boc" id="Gpk-Mt-cAV"/>
                         <outlet property="soundButton" destination="11J-jO-h4g" id="5iH-u0-SaD"/>
+                        <segue destination="8gu-jK-29X" kind="presentation" identifier="presentMonCollection" id="Xyg-A8-1gj"/>
+                        <segue destination="ikg-RD-UXz" kind="presentation" identifier="presentEggCollection" id="FYD-Jc-OlM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWv-pa-y3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="72"/>
+            <point key="canvasLocation" x="-737" y="-224"/>
         </scene>
         <!--Active Hatch View Controller-->
         <scene sceneID="XsT-m4-461">
@@ -279,7 +298,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3NM-uI-zOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="200.80000000000001" y="503.29835082458777"/>
+            <point key="canvasLocation" x="167" y="564"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uj3-gX-cEd">
+            <objects>
+                <navigationController id="ikg-RD-UXz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QGS-fQ-O0d">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dXT-J1-RUU" kind="relationship" relationship="rootViewController" id="pqG-PG-uGi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKd-qv-utq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="-998"/>
         </scene>
         <!--Egg Selection View Controller-->
         <scene sceneID="WTd-Si-jXY">
@@ -410,6 +445,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3qO-jH-v06"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GZ0-78-G2q"/>
                     <connections>
                         <outlet property="tierFourEggCollectionView" destination="O8r-0b-eLd" id="ygt-cB-EPp"/>
                         <outlet property="tierOneEggCollectionView" destination="8Bl-Wf-skW" id="8Sg-6k-jnd"/>
@@ -420,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67m-V8-uDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="-998"/>
+            <point key="canvasLocation" x="1129" y="-998"/>
         </scene>
     </scenes>
 </document>

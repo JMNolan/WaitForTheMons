@@ -20,6 +20,9 @@
 		512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */; };
 		512ED4E621253F56009C6522 /* MonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E521253F56009C6522 /* MonCell.swift */; };
 		512ED4E821254667009C6522 /* EggCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E721254667009C6522 /* EggCell.swift */; };
+		512ED4EB212674EA009C6522 /* WFTMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4EA212674EA009C6522 /* WFTMModel.swift */; };
+		512ED4ED21267B64009C6522 /* WFTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4EC21267B64009C6522 /* WFTMConstants.swift */; };
+		512ED4EF21267FCE009C6522 /* MonLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4EE21267FCE009C6522 /* MonLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHatchViewController.swift; sourceTree = "<group>"; };
 		512ED4E521253F56009C6522 /* MonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonCell.swift; sourceTree = "<group>"; };
 		512ED4E721254667009C6522 /* EggCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggCell.swift; sourceTree = "<group>"; };
+		512ED4EA212674EA009C6522 /* WFTMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFTMModel.swift; sourceTree = "<group>"; };
+		512ED4EC21267B64009C6522 /* WFTMConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFTMConstants.swift; sourceTree = "<group>"; };
+		512ED4EE21267FCE009C6522 /* MonLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			children = (
 				511741EA21227B9F00B9017B /* WaitForTheMons.xcdatamodeld */,
 				511741E321227B9F00B9017B /* AppDelegate.swift */,
+				512ED4EA212674EA009C6522 /* WFTMModel.swift */,
+				512ED4EC21267B64009C6522 /* WFTMConstants.swift */,
+				512ED4EE21267FCE009C6522 /* MonLibrary.swift */,
 			);
 			path = WFTMModels;
 			sourceTree = "<group>";
@@ -184,9 +193,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				512ED4E621253F56009C6522 /* MonCell.swift in Sources */,
+				512ED4ED21267B64009C6522 /* WFTMConstants.swift in Sources */,
+				512ED4EB212674EA009C6522 /* WFTMModel.swift in Sources */,
 				512ED4E221253B1D009C6522 /* EggDetailViewController.swift in Sources */,
 				511741EC21227B9F00B9017B /* WaitForTheMons.xcdatamodeld in Sources */,
 				511741E621227B9F00B9017B /* MainMenuViewController.swift in Sources */,
+				512ED4EF21267FCE009C6522 /* MonLibrary.swift in Sources */,
 				512ED4E021253AA9009C6522 /* EggSelectionViewController.swift in Sources */,
 				511741FE2124A9C000B9017B /* MonDetailViewController.swift in Sources */,
 				512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */,
