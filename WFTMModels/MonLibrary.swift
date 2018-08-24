@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 //list of all Mons
-let blastoise = WFTMModel.Mon.init(level: 3, type: "water", name: "Blastoise", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Blastoise"))
+let blastoise = WFTMModel.Mon.init(level: 3, type: "water", name: "Blastoise", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Blastoise")))
 let bulbasaur = WFTMModel.Mon.init(level: 1, type: "plant", name: "Bulbasaur", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Bulbasaur")))
 let butterfree = WFTMModel.Mon.init(level: 3, type: "insect", name: "Butterfree", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Butterfree")))
 let caterpie = WFTMModel.Mon.init(level: 1, type: "insect", name: "Caterpie", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Caterpie")))
