@@ -7,28 +7,29 @@
 //
 
 import Foundation
+import UIKit
 
 //list of all Mons
-let blastoise = WFTMModel.Mon.init(level: 3, type: "water", name: "Blastoise")
-let bulbasaur = WFTMModel.Mon.init(level: 1, type: "plant", name: "Bulbasaur")
-let butterfree = WFTMModel.Mon.init(level: 3, type: "insect", name: "Butterfree")
-let caterpie = WFTMModel.Mon.init(level: 1, type: "insect", name: "Caterpie")
-let charizard = WFTMModel.Mon.init(level: 3, type: "fire", name: "Charizard")
-let charmander = WFTMModel.Mon.init(level: 1, type: "fire", name: "Charmander")
-let charmeleon = WFTMModel.Mon.init(level: 2, type: "fire", name: "Charmeleon")
-let ivysaur = WFTMModel.Mon.init(level: 2, type: "plant", name: "Ivysaur")
-let megaBlastoise = WFTMModel.Mon.init(level: 4, type: "water", name: "Mega Blastoise")
-let megaCharizard = WFTMModel.Mon.init(level: 4, type: "fire", name: "Mega Charizard")
-let megaPidgeot = WFTMModel.Mon.init(level: 4, type: "bird", name: "Mega Pidgeot")
-let metapod = WFTMModel.Mon.init(level: 2, type: "insect", name: "Metapod")
-let pidgeot = WFTMModel.Mon.init(level: 3, type: "bird", name: "Pidgeot")
-let pidgeotto = WFTMModel.Mon.init(level: 2, type: "bird", name: "Pidgeotto")
-let pidgy = WFTMModel.Mon.init(level: 1, type: "bird", name: "Pidgy")
-let pikachu = WFTMModel.Mon.init(level: 2, type: "electric", name: "Pikachu")
-let raichu = WFTMModel.Mon.init(level: 3, type: "electric", name: "Raichu")
-let squirtle = WFTMModel.Mon.init(level: 1, type: "water", name: "Squirtle")
-let venusaur = WFTMModel.Mon.init(level: 3, type: "plant", name: "Venusaur")
-let wartortle = WFTMModel.Mon.init(level: 2, type: "water", name: "Wartortle")
+let blastoise = WFTMModel.Mon.init(level: 3, type: "water", name: "Blastoise", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Blastoise"))
+let bulbasaur = WFTMModel.Mon.init(level: 1, type: "plant", name: "Bulbasaur", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Bulbasaur")))
+let butterfree = WFTMModel.Mon.init(level: 3, type: "insect", name: "Butterfree", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Butterfree")))
+let caterpie = WFTMModel.Mon.init(level: 1, type: "insect", name: "Caterpie", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Caterpie")))
+let charizard = WFTMModel.Mon.init(level: 3, type: "fire", name: "Charizard", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Charizard")))
+let charmander = WFTMModel.Mon.init(level: 1, type: "fire", name: "Charmander", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Charmander")))
+let charmeleon = WFTMModel.Mon.init(level: 2, type: "fire", name: "Charmeleon", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Charmeleon")))
+let ivysaur = WFTMModel.Mon.init(level: 2, type: "plant", name: "Ivysaur", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Ivysaur")))
+let megaBlastoise = WFTMModel.Mon.init(level: 4, type: "water", name: "Mega Blastoise", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "MegaBlastoise")))
+let megaCharizard = WFTMModel.Mon.init(level: 4, type: "fire", name: "Mega Charizard", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "MegaCharizard")))
+let megaPidgeot = WFTMModel.Mon.init(level: 4, type: "bird", name: "Mega Pidgeot", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "MegaPidgeot")))
+let metapod = WFTMModel.Mon.init(level: 2, type: "insect", name: "Metapod", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Metapod")))
+let pidgeot = WFTMModel.Mon.init(level: 3, type: "bird", name: "Pidgeot", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Pidgeot")))
+let pidgeotto = WFTMModel.Mon.init(level: 2, type: "bird", name: "Pidgeotto", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Pidgeotto")))
+let pidgy = WFTMModel.Mon.init(level: 1, type: "bird", name: "Pidgy", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Pidgey")))
+let pikachu = WFTMModel.Mon.init(level: 2, type: "electric", name: "Pikachu", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Pikachu")))
+let raichu = WFTMModel.Mon.init(level: 3, type: "electric", name: "Raichu", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Raichu")))
+let squirtle = WFTMModel.Mon.init(level: 1, type: "water", name: "Squirtle", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Squirtle")))
+let venusaur = WFTMModel.Mon.init(level: 3, type: "plant", name: "Venusaur", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Venusaur")))
+let wartortle = WFTMModel.Mon.init(level: 2, type: "water", name: "Wartortle", image: UIImagePNGRepresentation(#imageLiteral(resourceName: "Wartortle")))
 
 class MonLibrary: NSObject {
     
