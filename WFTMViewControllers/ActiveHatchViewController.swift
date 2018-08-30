@@ -17,5 +17,9 @@ class ActiveHatchViewController: UIViewController {
     @IBOutlet weak var timeRemainingLabel: UILabel!
     @IBOutlet weak var timer: UILabel!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //TODO: Use UserDefaults to load the active egg with transitioning to this view
+    }
     
 }

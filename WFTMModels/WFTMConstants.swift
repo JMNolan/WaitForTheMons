@@ -16,6 +16,11 @@ extension WFTMModel {
         let type: String!
         let name: String!
         let image: Data!
-        //TODO: enable this and tag an image to each Mon in MonLibrary        let image: UIImage
+    }
+    
+    struct Egg {
+        let level: Int!
+        let type: String!
+        let image: UIImage!
     }
 }
