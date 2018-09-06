@@ -99,12 +99,12 @@
         <!--Egg Detail View Controller-->
         <scene sceneID="V4u-F0-2eN">
             <objects>
-                <viewController id="MSd-Hq-8Le" customClass="EggDetailViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EggDetailViewController" id="MSd-Hq-8Le" customClass="EggDetailViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9gN-RQ-B7a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqv-dA-Qg2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqv-dA-Qg2">
                                 <rect key="frame" x="16" y="77" width="343" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -136,7 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="beginHatchButton" destination="CKm-ip-EDJ" id="VKO-JH-YMp"/>
-                        <outlet property="eggImage" destination="qqv-dA-Qg2" id="P2Z-8u-18v"/>
+                        <outlet property="eggImageView" destination="qqv-dA-Qg2" id="Q5e-wK-fFo"/>
                         <outlet property="levelLabel" destination="qic-dG-g5e" id="bER-Tm-lbY"/>
                         <outlet property="typeLabel" destination="Muc-IP-kmB" id="4Hh-Z5-hF1"/>
                     </connections>
@@ -313,168 +313,254 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select An Egg To Begin Hatching..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eZ-yv-pV8">
-                                <rect key="frame" x="54" y="51" width="266" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="H8o-4T-F1k">
-                                <rect key="frame" x="16" y="120" width="427" height="527"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zca-mP-aJf" userLabel="Egg Collection Stack View">
+                                <rect key="frame" x="-6" y="108" width="375" height="527"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="top" ambiguous="YES" axis="vertical" distribution="fillEqually" alignment="top" spacing="109" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-Fe-85d" userLabel="Collection Labels Stack View">
-                                        <rect key="frame" x="0.0" y="47" width="69" height="433"/>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="aeP-xp-cT1" userLabel="Tier One Collection And Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Level 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjx-d3-691" userLabel="Level 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="65.5" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdP-PW-14T" userLabel="Tier One Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="25" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Level 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nct-5S-xWd" userLabel="Level 2">
-                                                <rect key="frame" x="0.0" y="135.5" width="68" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Level 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMQ-mk-2pN" userLabel="Level 3">
-                                                <rect key="frame" x="0.0" y="271" width="68.5" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Level 4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KyB-r7-9wv" userLabel="Level 4">
-                                                <rect key="frame" x="0.0" y="406.5" width="69" height="26.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Bl-Wf-skW" userLabel="Tier One Eggs">
+                                                <rect key="frame" x="25" y="0.0" width="300" height="128"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="fDs-gF-vRn"/>
+                                                    <constraint firstAttribute="height" constant="128" id="xGC-CY-Gxb"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vJN-iK-afl">
+                                                    <size key="itemSize" width="89" height="120"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" reuseIdentifier="tierOneEggCell" id="kBJ-aW-YSq" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="4" width="89" height="120"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="120"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUc-9m-U0i" userLabel="Egg Image">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="120"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="89" id="Fmp-hD-RcY"/>
+                                                                        <constraint firstAttribute="height" constant="120" id="d81-55-7yW"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </view>
+                                                        <constraints>
+                                                            <constraint firstItem="kUc-9m-U0i" firstAttribute="centerY" secondItem="kBJ-aW-YSq" secondAttribute="centerY" id="UF9-kO-ObP"/>
+                                                            <constraint firstItem="kUc-9m-U0i" firstAttribute="centerX" secondItem="kBJ-aW-YSq" secondAttribute="centerX" id="cfn-I5-wqc"/>
+                                                        </constraints>
+                                                        <size key="customSize" width="89" height="120"/>
+                                                        <connections>
+                                                            <outlet property="cellImage" destination="kUc-9m-U0i" id="Vmo-gm-DR5"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQs-Fs-5Ls">
+                                                <rect key="frame" x="325" y="0.0" width="50" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="JJN-tM-kJ8"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zca-mP-aJf" userLabel="Egg Collection Stack View">
-                                        <rect key="frame" x="84" y="0.0" width="343" height="527"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UCh-Yp-fU6" userLabel="Tier Two Collection And Label">
+                                        <rect key="frame" x="0.0" y="133" width="374" height="128"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Bl-Wf-skW" userLabel="Tier One Eggs">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-kM-Fcx" userLabel="Tier Two Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="74" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-IW-68x" userLabel="Tier Two Eggs">
+                                                <rect key="frame" x="74" y="0.0" width="300" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vJN-iK-afl">
-                                                    <size key="itemSize" width="50" height="50"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="kBJ-aW-YSq" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUc-9m-U0i" userLabel="Egg Image">
-                                                                    <rect key="frame" x="-95" y="-39" width="240" height="128"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                        </view>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-IW-68x" userLabel="Tier Two Eggs">
-                                                <rect key="frame" x="0.0" y="133" width="343" height="128"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="ksu-LF-Utd"/>
+                                                    <constraint firstAttribute="width" constant="300" id="nWh-dO-Jks"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oyK-Lv-k5w">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="itemSize" width="89" height="120"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="uIl-7K-YZM" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierTwoEggCell" id="uIl-7K-YZM" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="4" width="89" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-8u-E47" userLabel="Egg Image">
-                                                                    <rect key="frame" x="-95" y="-39" width="240" height="128"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-8u-E47" userLabel="Egg Image">
+                                                                    <rect key="frame" x="0.0" y="-1" width="89" height="120.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="89" id="RP0-Qn-FkB"/>
+                                                                        <constraint firstAttribute="height" constant="120" id="ys1-cg-yih"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="dFK-8u-E47" firstAttribute="centerX" secondItem="uIl-7K-YZM" secondAttribute="centerX" id="kE9-eb-BQP"/>
+                                                            <constraint firstItem="dFK-8u-E47" firstAttribute="centerY" secondItem="uIl-7K-YZM" secondAttribute="centerY" id="xF4-Bh-wco"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="cellImage" destination="dFK-8u-E47" id="a9N-hg-3fK"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZRA-8X-bzc" userLabel="Tier Three Eggs">
-                                                <rect key="frame" x="0.0" y="266" width="343" height="128"/>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-71-UAh" userLabel="Tier Three Collection And Label">
+                                        <rect key="frame" x="0.0" y="266" width="375" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90I-VZ-iSA">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZRA-8X-bzc" userLabel="Tier Three Eggs">
+                                                <rect key="frame" x="75" y="0.0" width="300" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="B9H-h7-wDY"/>
+                                                    <constraint firstAttribute="width" constant="300" id="Ddh-lK-mS7"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SQX-ln-9Gt">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="itemSize" width="89" height="120"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="lvv-EY-G7S" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierThreeEggCell" id="lvv-EY-G7S" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="4" width="89" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-oT-RKQ" userLabel="Egg Image">
-                                                                    <rect key="frame" x="-95" y="-39" width="240" height="128"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-oT-RKQ" userLabel="Egg Image">
+                                                                    <rect key="frame" x="0.0" y="-1" width="89" height="120.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="120" id="O6Z-o1-oqm"/>
+                                                                        <constraint firstAttribute="width" constant="89" id="lEN-2H-WAy"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="Mae-oT-RKQ" firstAttribute="centerX" secondItem="lvv-EY-G7S" secondAttribute="centerX" id="HeN-xe-Dwh"/>
+                                                            <constraint firstItem="Mae-oT-RKQ" firstAttribute="centerY" secondItem="lvv-EY-G7S" secondAttribute="centerY" id="YBv-KU-PES"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="cellImage" destination="Mae-oT-RKQ" id="YwR-U9-kFO"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-0b-eLd" userLabel="Tier Four Eggs">
-                                                <rect key="frame" x="0.0" y="399" width="343" height="128"/>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHg-Zs-wF9" userLabel="Tier Four Collection And Label">
+                                        <rect key="frame" x="0.0" y="399" width="375" height="128"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox6-tt-bWl">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-0b-eLd" userLabel="Tier Four Eggs">
+                                                <rect key="frame" x="75" y="0.0" width="300" height="128"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="9HX-WX-Vdz"/>
+                                                    <constraint firstAttribute="height" constant="128" id="BC9-Xf-fxG"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vft-Cl-cok">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="itemSize" width="89" height="120"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="wUN-Y4-tq2" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierFourEggCell" id="wUN-Y4-tq2" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="4" width="89" height="120"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="120"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-Lt-iMD" userLabel="Egg Image">
-                                                                    <rect key="frame" x="-95" y="-39" width="240" height="128"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-Lt-iMD" userLabel="Egg Image">
+                                                                    <rect key="frame" x="0.0" y="-1" width="89" height="120.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="89" id="0z1-oT-gLd"/>
+                                                                        <constraint firstAttribute="height" constant="120" id="bxT-77-SEN"/>
+                                                                    </constraints>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
+                                                        <constraints>
+                                                            <constraint firstItem="Zbu-Lt-iMD" firstAttribute="centerY" secondItem="wUN-Y4-tq2" secondAttribute="centerY" id="B09-ni-zQk"/>
+                                                            <constraint firstItem="Zbu-Lt-iMD" firstAttribute="centerX" secondItem="wUN-Y4-tq2" secondAttribute="centerX" id="vbf-O6-emo"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <outlet property="cellImage" destination="Zbu-Lt-iMD" id="c27-cT-uLG"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aeP-xp-cT1" secondAttribute="trailing" id="0Vu-MP-gDV"/>
+                                    <constraint firstAttribute="trailing" secondItem="yMz-71-UAh" secondAttribute="trailing" id="brA-dP-1gp"/>
+                                    <constraint firstItem="yMz-71-UAh" firstAttribute="trailing" secondItem="FHg-Zs-wF9" secondAttribute="trailing" id="f6a-dg-AWf"/>
+                                    <constraint firstItem="UCh-Yp-fU6" firstAttribute="centerX" secondItem="yMz-71-UAh" secondAttribute="centerX" id="yiP-yg-eJI"/>
+                                </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select An Egg To Begin Hatching..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eZ-yv-pV8" userLabel="Title">
+                                <rect key="frame" x="54" y="79" width="266" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zca-mP-aJf" firstAttribute="leading" secondItem="3qO-jH-v06" secondAttribute="trailing" constant="-381" id="Lzw-Ws-Una"/>
+                            <constraint firstItem="zca-mP-aJf" firstAttribute="top" secondItem="3qO-jH-v06" secondAttribute="bottom" constant="-559" id="QAc-HH-X2B"/>
+                            <constraint firstItem="zca-mP-aJf" firstAttribute="width" secondItem="3qO-jH-v06" secondAttribute="width" id="b3C-6M-cs9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3qO-jH-v06"/>
                     </view>
                     <navigationItem key="navigationItem" id="GZ0-78-G2q"/>
                     <connections>
+                        <outlet property="pageName" destination="5eZ-yv-pV8" id="cHz-NI-hLv"/>
                         <outlet property="tierFourEggCollectionView" destination="O8r-0b-eLd" id="ygt-cB-EPp"/>
                         <outlet property="tierOneEggCollectionView" destination="8Bl-Wf-skW" id="8Sg-6k-jnd"/>
                         <outlet property="tierThreeEggCollectionView" destination="ZRA-8X-bzc" id="XMn-Wy-syw"/>
                         <outlet property="tierTwoEggCollectionView" destination="jFf-IW-68x" id="gx3-Cr-1Rh"/>
-                        <outlet property="title" destination="5eZ-yv-pV8" id="fLd-zA-Z0M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67m-V8-uDR" userLabel="First Responder" sceneMemberID="firstResponder"/>

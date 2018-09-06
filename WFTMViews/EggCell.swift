@@ -11,5 +11,6 @@ import UIKit
 
 class EggCell: UICollectionViewCell {
     
-    var cellImage: UIImageView!
+    @IBOutlet weak var cellImage: UIImageView!
+    var eggForCell: WFTMModel.Egg!
 }
