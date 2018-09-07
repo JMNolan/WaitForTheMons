@@ -108,25 +108,34 @@
                                 <rect key="frame" x="16" y="77" width="343" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="ujV-2Q-jOK">
-                                <rect key="frame" x="145" y="438" width="84" height="137"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="ujV-2Q-jOK">
+                                <rect key="frame" x="124" y="393" width="127.5" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD5-5K-shl">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Type -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muc-IP-kmB">
-                                        <rect key="frame" x="0.0" y="0.0" width="84" height="20.5"/>
+                                        <rect key="frame" x="33.5" y="69" width="60.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Level -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qic-dG-g5e">
-                                        <rect key="frame" x="0.0" y="53.5" width="84" height="20.5"/>
+                                        <rect key="frame" x="32.5" y="122.5" width="62.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-ip-EDJ">
-                                        <rect key="frame" x="0.0" y="107" width="84" height="30"/>
+                                        <rect key="frame" x="22" y="176" width="84" height="30"/>
                                         <state key="normal" title="Begin Hatch"/>
+                                        <connections>
+                                            <action selector="beginHatchTapped" destination="MSd-Hq-8Le" eventType="touchUpInside" id="MZ7-De-CHP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -138,6 +147,7 @@
                         <outlet property="beginHatchButton" destination="CKm-ip-EDJ" id="VKO-JH-YMp"/>
                         <outlet property="eggImageView" destination="qqv-dA-Qg2" id="Q5e-wK-fFo"/>
                         <outlet property="levelLabel" destination="qic-dG-g5e" id="bER-Tm-lbY"/>
+                        <outlet property="timerLabel" destination="FD5-5K-shl" id="OYS-Tr-mED"/>
                         <outlet property="typeLabel" destination="Muc-IP-kmB" id="4Hh-Z5-hF1"/>
                     </connections>
                 </viewController>
@@ -264,46 +274,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWv-pa-y3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-737" y="-224"/>
-        </scene>
-        <!--Active Hatch View Controller-->
-        <scene sceneID="XsT-m4-461">
-            <objects>
-                <viewController id="XlJ-Em-EIn" customClass="ActiveHatchViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Pzf-BA-T66">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="auZ-as-9aX">
-                                <rect key="frame" x="16" y="79" width="343" height="488"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time Remaining:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3K-q2-M3o" userLabel="Time Remaining Label">
-                                <rect key="frame" x="86" y="601" width="127" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0y-IS-yez" userLabel="Timer">
-                                <rect key="frame" x="221" y="601" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="meT-0S-iQa"/>
-                    </view>
-                    <connections>
-                        <outlet property="eggImage" destination="auZ-as-9aX" id="TSE-IT-etw"/>
-                        <outlet property="timeRemainingLabel" destination="J3K-q2-M3o" id="E1T-MY-jTQ"/>
-                        <outlet property="timer" destination="Y0y-IS-yez" id="SWr-Wd-bTy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3NM-uI-zOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="167" y="564"/>
         </scene>
         <!--Egg Selection View Controller-->
         <scene sceneID="WTd-Si-jXY">

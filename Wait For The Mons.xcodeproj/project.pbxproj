@@ -17,7 +17,6 @@
 		511741FE2124A9C000B9017B /* MonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511741FD2124A9C000B9017B /* MonDetailViewController.swift */; };
 		512ED4E021253AA9009C6522 /* EggSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */; };
 		512ED4E221253B1D009C6522 /* EggDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E121253B1D009C6522 /* EggDetailViewController.swift */; };
-		512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */; };
 		512ED4E621253F56009C6522 /* MonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E521253F56009C6522 /* MonCell.swift */; };
 		512ED4E821254667009C6522 /* EggCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4E721254667009C6522 /* EggCell.swift */; };
 		512ED4EB212674EA009C6522 /* WFTMModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4EA212674EA009C6522 /* WFTMModel.swift */; };
@@ -39,7 +38,6 @@
 		511741FD2124A9C000B9017B /* MonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonDetailViewController.swift; sourceTree = "<group>"; };
 		512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggSelectionViewController.swift; sourceTree = "<group>"; };
 		512ED4E121253B1D009C6522 /* EggDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggDetailViewController.swift; sourceTree = "<group>"; };
-		512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveHatchViewController.swift; sourceTree = "<group>"; };
 		512ED4E521253F56009C6522 /* MonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonCell.swift; sourceTree = "<group>"; };
 		512ED4E721254667009C6522 /* EggCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggCell.swift; sourceTree = "<group>"; };
 		512ED4EA212674EA009C6522 /* WFTMModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFTMModel.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				511741FD2124A9C000B9017B /* MonDetailViewController.swift */,
 				512ED4DF21253AA9009C6522 /* EggSelectionViewController.swift */,
 				512ED4E121253B1D009C6522 /* EggDetailViewController.swift */,
-				512ED4E321253B6D009C6522 /* ActiveHatchViewController.swift */,
 			);
 			path = WFTMViewControllers;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				512ED4EF21267FCE009C6522 /* MonLibrary.swift in Sources */,
 				512ED4E021253AA9009C6522 /* EggSelectionViewController.swift in Sources */,
 				511741FE2124A9C000B9017B /* MonDetailViewController.swift in Sources */,
-				512ED4E421253B6D009C6522 /* ActiveHatchViewController.swift in Sources */,
 				512ED4E821254667009C6522 /* EggCell.swift in Sources */,
 				512ED4F12137C12D009C6522 /* EggLibrary.swift in Sources */,
 				511741E421227B9F00B9017B /* AppDelegate.swift in Sources */,
