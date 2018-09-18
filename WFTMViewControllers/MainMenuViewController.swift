@@ -17,6 +17,8 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var soundButton: UIButton!
     
+    var dataController: DataController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,11 +26,13 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func monsButtonPressed() {
         let monsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
+        monsVC.dataController = self.dataController
         navigationController?.pushViewController(monsVC, animated: true)
     }
     
     @IBAction func eggsButtonPressed() {
         let eggsVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+        eggsVC.dataController = self.dataController
         navigationController?.pushViewController(eggsVC, animated: true)
     }
     

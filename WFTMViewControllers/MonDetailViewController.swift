@@ -21,10 +21,34 @@ class MonDetailViewController: UIViewController {
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var typeText: UILabel!
     @IBOutlet weak var hatchDateText: UILabel!
+    @IBOutlet weak var mainMenuButton: UIButton!
+    @IBOutlet weak var allMonsButton: UIButton!
+    
+    var currentMon: Mon!
+    var monName: String!
+    var monType: String!
+    var hatchDate: Date!
+    var dataController: DataController!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        monImage.image = UIImage(data: currentMon.image!)
+        nameText.text = currentMon.name
+        typeText.text = currentMon.type
+        hatchDateText.text = currentMon.creationDate
+        
+    }
+    
+    @IBAction func mainMenuPressed() {
+        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "mainMenuViewController") as! MainMenuViewController
+        mainMenuVC.dataController = self.dataController
+        self.present(mainMenuVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func allMonsPressed() {
+        
     }
     
 }

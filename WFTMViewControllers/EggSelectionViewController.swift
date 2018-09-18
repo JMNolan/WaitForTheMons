@@ -24,6 +24,7 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     var tierTwoEggSource = [WFTMModel.Egg]()
     var tierThreeEggSource = [WFTMModel.Egg]()
     var tierFourEggSource = [WFTMModel.Egg]()
+    var dataController: DataController!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -63,6 +64,7 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     func loadEggDetailView(currentEgg: WFTMModel.Egg) {
         let newVC = self.storyboard?.instantiateViewController(withIdentifier: "EggDetailViewController") as! EggDetailViewController
         newVC.currentEgg = currentEgg
+        newVC.dataController = self.dataController
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
@@ -77,7 +79,6 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     //Data Source Methods for collection views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == tierOneEggCollectionView {
-            print("The number of eggs is: \(tierOneEggSource.count)")
             return tierOneEggSource.count
         } else {
             if collectionView == self.tierTwoEggCollectionView {
@@ -97,27 +98,23 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierOneEggCell", for: indexPath) as! EggCell
             cell.cellImage.image = tierOneEggSource[indexPath.row].image
             cell.eggForCell = tierOneEggSource[indexPath.row]
-            print("Tier one image is: \(tierOneEggSource[indexPath.row].image)")
             return cell
         } else {
             if collectionView == self.tierTwoEggCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierTwoEggCell", for: indexPath) as! EggCell
                 cell.cellImage.image = tierTwoEggSource[indexPath.row].image
                 cell.eggForCell = tierTwoEggSource[indexPath.row]
-                print("Tier two image is: \(tierTwoEggSource[indexPath.row].image)")
                 return cell
             } else {
                 if collectionView == self.tierThreeEggCollectionView {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierThreeEggCell", for: indexPath) as! EggCell
                     cell.cellImage.image = tierThreeEggSource[indexPath.row].image
                     cell.eggForCell = tierThreeEggSource[indexPath.row]
-                    print("Tier three image is: \(tierThreeEggSource[indexPath.row].image)")
                     return cell
                 } else {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierFourEggCell", for: indexPath) as! EggCell
                     cell.cellImage.image = tierFourEggSource[indexPath.row].image
                     cell.eggForCell = tierFourEggSource[indexPath.row]
-                    print("Tier four image is: \(tierFourEggSource[indexPath.row].image)")
                     return cell
                 }
             }

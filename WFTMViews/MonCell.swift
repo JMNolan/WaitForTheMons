@@ -12,4 +12,10 @@ import UIKit
 class MonCell: UICollectionViewCell {
     
     var cellImage: UIImageView!
+    var mon: Mon!
+    
+    func setImage(mon: Mon) {
+        print("This is the image for this cell: \(String(describing: mon.image))")
+        self.cellImage.image = UIImage(data: mon.image!)
+    }
 }
