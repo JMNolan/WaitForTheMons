@@ -14,6 +14,8 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     // MARK: IBOutlets
     @IBOutlet weak var monCollectionView: UICollectionView!
+    @IBOutlet weak var noMonsLabel: UILabel!
+    
     
     var dataController: DataController!
     var fetchedResultsController: NSFetchedResultsController<Mon>!
@@ -38,14 +40,36 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
         do {
             try fetchedResultsController.performFetch()
             self.monCount = fetchedResultsController.fetchedObjects?.count
+            if self.monCount > 0 {
+                self.noMonsLabel.isHidden = true
+            } else {
+                self.noMonsLabel.isHidden = false
+            }
         } catch {
             print("error fetching results from fetchedResultsController")
         }
     }
     
+    @IBAction func mainMenuButtonPressed(_ sender: Any) {
+        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+        mainMenuVC.dataController = self.dataController
+        self.present(mainMenuVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func eggsButtonPressed(_ sender: Any) {
+        let eggSelectionVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+        eggSelectionVC.dataController = self.dataController
+        self.present(eggSelectionVC, animated: true, completion: nil)
+    }
+    
+    
     //MARK: Collection View Data Source Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO: pass the selected mon and transition to MonDetailViewController
+        let mon = fetchedResultsController.object(at: indexPath)
+        let monDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MonDetailViewController") as! MonDetailViewController
+        monDetailVC.dataController = self.dataController
+        monDetailVC.currentMon = mon
+        self.present(monDetailVC, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,15 +83,6 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MonCell", for: indexPath) as! MonCell
         let mon = fetchedResultsController.object(at: indexPath)
-//        if let monImageData = mon.image {
-//            if let monImage = UIImage(data: monImageData) {
-//                cell.cellImage.image = monImage
-//                cell.mon = mon
-//                return cell
-//            }
-//        }
-//        cell.mon = mon
-//        cell.setImage(mon: mon)
         cell.setImage(mon: mon)
         return cell
     }

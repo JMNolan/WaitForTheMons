@@ -24,9 +24,11 @@
 		512ED4EF21267FCE009C6522 /* MonLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4EE21267FCE009C6522 /* MonLibrary.swift */; };
 		512ED4F12137C12D009C6522 /* EggLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512ED4F02137C12D009C6522 /* EggLibrary.swift */; };
 		51C8AC3E2150718D00B59C14 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C8AC3D2150718D00B59C14 /* DataController.swift */; };
+		C4ED0F44E62DE6E592B92454 /* Pods_Wait_For_The_Mons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E789657C07E4B3163B440C83 /* Pods_Wait_For_The_Mons.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F8CD621C6D4DC10D83A166 /* Pods-Wait For The Mons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait For The Mons.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wait For The Mons/Pods-Wait For The Mons.release.xcconfig"; sourceTree = "<group>"; };
 		511741E021227B9F00B9017B /* Wait For The Mons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait For The Mons.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		511741E321227B9F00B9017B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		511741E521227B9F00B9017B /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +48,8 @@
 		512ED4EE21267FCE009C6522 /* MonLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonLibrary.swift; sourceTree = "<group>"; };
 		512ED4F02137C12D009C6522 /* EggLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggLibrary.swift; sourceTree = "<group>"; };
 		51C8AC3D2150718D00B59C14 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		90812B10C96BB073CC9E8226 /* Pods-Wait For The Mons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait For The Mons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wait For The Mons/Pods-Wait For The Mons.debug.xcconfig"; sourceTree = "<group>"; };
+		E789657C07E4B3163B440C83 /* Pods_Wait_For_The_Mons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wait_For_The_Mons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,12 +57,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4ED0F44E62DE6E592B92454 /* Pods_Wait_For_The_Mons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3652DA11A705B66C532A4A43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90812B10C96BB073CC9E8226 /* Pods-Wait For The Mons.debug.xcconfig */,
+				00F8CD621C6D4DC10D83A166 /* Pods-Wait For The Mons.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		511741D721227B9F00B9017B = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +81,8 @@
 				511741FA2124A96A00B9017B /* WFTMViews */,
 				511741E221227B9F00B9017B /* WFTMViewControllers */,
 				511741FF2124ACFF00B9017B /* SupportFiles */,
+				3652DA11A705B66C532A4A43 /* Pods */,
+				D366D456D9109DEA721AF4F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +140,14 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
+		D366D456D9109DEA721AF4F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E789657C07E4B3163B440C83 /* Pods_Wait_For_The_Mons.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 511741F521227BA200B9017B /* Build configuration list for PBXNativeTarget "Wait For The Mons" */;
 			buildPhases = (
+				EC70B93396FEE94387CFA8C6 /* [CP] Check Pods Manifest.lock */,
 				511741DC21227B9F00B9017B /* Sources */,
 				511741DD21227B9F00B9017B /* Frameworks */,
 				511741DE21227B9F00B9017B /* Resources */,
+				924C56266157153A9CBB0C2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +215,59 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		924C56266157153A9CBB0C2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wait For The Mons/Pods-Wait For The Mons-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wait For The Mons/Pods-Wait For The Mons-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC70B93396FEE94387CFA8C6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wait For The Mons-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		511741DC21227B9F00B9017B /* Sources */ = {
@@ -350,6 +429,7 @@
 		};
 		511741F621227BA200B9017B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90812B10C96BB073CC9E8226 /* Pods-Wait For The Mons.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,6 +447,7 @@
 		};
 		511741F721227BA200B9017B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F8CD621C6D4DC10D83A166 /* Pods-Wait For The Mons.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

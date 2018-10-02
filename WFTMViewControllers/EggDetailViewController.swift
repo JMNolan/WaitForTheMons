@@ -198,7 +198,7 @@ class EggDetailViewController: UIViewController {
     
     //Create Mon, save it to persistent store, and pass it to MonDetailViewController to be shown as hatched mon
     func showHatchedMon() {
-        let monDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "monDetailViewController") as! MonDetailViewController
+        let monDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MonDetailViewController") as! MonDetailViewController
         let hatchedMon = hatchRandomMon(level: self.currentEgg.level, type: self.currentEgg.type)
         let date = Date()
         let formatter = DateFormatter()
@@ -216,6 +216,7 @@ class EggDetailViewController: UIViewController {
         newMon.image = hatchedMon.image!
         print("the mon image is: \(String(describing: newMon.image!))")
         try? dataController.viewContext.save()
+        monDetailVC.dataController = self.dataController
         monDetailVC.currentMon = newMon
         present(monDetailVC, animated: true, completion: nil)
     }

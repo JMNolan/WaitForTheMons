@@ -11,7 +11,7 @@ import UIKit
 
 class MonCell: UICollectionViewCell {
     
-    var cellImage: UIImageView!
+    @IBOutlet weak var cellImage: UIImageView!
     var mon: Mon!
     
     func setImage(mon: Mon) {

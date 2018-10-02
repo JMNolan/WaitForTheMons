@@ -21,8 +21,8 @@ class MonDetailViewController: UIViewController {
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var typeText: UILabel!
     @IBOutlet weak var hatchDateText: UILabel!
-    @IBOutlet weak var mainMenuButton: UIButton!
-    @IBOutlet weak var allMonsButton: UIButton!
+    @IBOutlet weak var mainMenuButton: UIBarButtonItem!
+    @IBOutlet weak var allMonsButton: UIBarButtonItem!
     
     var currentMon: Mon!
     var monName: String!
@@ -48,7 +48,9 @@ class MonDetailViewController: UIViewController {
     }
     
     @IBAction func allMonsPressed() {
-        
+        let allMonsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
+        allMonsVC.dataController = self.dataController
+        self.present(allMonsVC, animated: true, completion: nil)
     }
     
 }

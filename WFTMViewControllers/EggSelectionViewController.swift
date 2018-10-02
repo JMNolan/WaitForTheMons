@@ -65,8 +65,21 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         let newVC = self.storyboard?.instantiateViewController(withIdentifier: "EggDetailViewController") as! EggDetailViewController
         newVC.currentEgg = currentEgg
         newVC.dataController = self.dataController
-        self.navigationController?.pushViewController(newVC, animated: true)
+        self.present(newVC, animated: true, completion: nil)
     }
+    
+    @IBAction func mainMenuButtonPressed(_ sender: Any) {
+        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
+        mainMenuVC.dataController = self.dataController
+        self.present(mainMenuVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func monsButtonPressed(_ sender: Any) {
+        let allMonsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
+        allMonsVC.dataController = self.dataController
+        self.present(allMonsVC, animated: true, completion: nil)
+    }
+    
     
     //collection view layout settings
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 import CoreData
+import FBSDKLoginKit
 
-class MainMenuViewController: UIViewController {
-
+class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
+    
     // MARK: IBOutlets
     @IBOutlet weak var monsButton: UIButton!
     @IBOutlet weak var eggsButton: UIButton!
@@ -21,19 +22,24 @@ class MainMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let loginButton = FBSDKLoginButton()
+        loginButton.delegate = self
+        view.addSubview(loginButton)
+        setFBLoginButtonConstraints(button: loginButton)
+        
     }
     
     @IBAction func monsButtonPressed() {
         let monsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
         monsVC.dataController = self.dataController
-        navigationController?.pushViewController(monsVC, animated: true)
+        self.present(monsVC, animated: true, completion: nil)
     }
     
     @IBAction func eggsButtonPressed() {
         let eggsVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
         eggsVC.dataController = self.dataController
-        navigationController?.pushViewController(eggsVC, animated: true)
+        self.present(eggsVC, animated: true, completion: nil)
     }
     
     @IBAction func backgroundButtonPressed() {
@@ -42,6 +48,28 @@ class MainMenuViewController: UIViewController {
     
     @IBAction func soundButtonPressed() {
         //TODO: turn off any sound in the game if sound is added
+    }
+    
+    func setFBLoginButtonConstraints(button: UIView) {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 20).isActive = true
+        button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    //MARK: Facebook Login Button Delegate Methods
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error)
+            return
+        }
+        
+        print("Successfully logged into facebook")
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("Did log out of facebook")
     }
 
 }
