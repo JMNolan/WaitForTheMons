@@ -98,7 +98,7 @@ class EggDetailViewController: UIViewController {
                 let mon = selectRandomMon(monArray: array)
                 return mon
             case "Insect":
-                let array = MonLibrary.level1PlantMon
+                let array = MonLibrary.level1InsectMon
                 let mon = selectRandomMon(monArray: array)
                 return mon
             default:
@@ -202,7 +202,7 @@ class EggDetailViewController: UIViewController {
         let hatchedMon = hatchRandomMon(level: self.currentEgg.level, type: self.currentEgg.type)
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "MM/dd/yyyy"
         let todaysDate = formatter.string(from: date)
         let newMon = Mon(context: dataController.viewContext)
         newMon.creationDate = todaysDate

@@ -52,8 +52,8 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func setFBLoginButtonConstraints(button: UIView) {
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 20).isActive = true
-        button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5).isActive = true
+        button.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 60).isActive = true
+        button.widthAnchor.constraint(equalTo: monsButton.widthAnchor, multiplier: 0.75).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
