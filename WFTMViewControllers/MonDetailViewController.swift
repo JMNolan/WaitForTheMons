@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import CoreData
-import Social
+import FBSDKShareKit
 
 class MonDetailViewController: UIViewController {
     
@@ -21,6 +21,7 @@ class MonDetailViewController: UIViewController {
     @IBOutlet weak var hatchDateText: UILabel!
     @IBOutlet weak var mainMenuButton: UIBarButtonItem!
     @IBOutlet weak var allMonsButton: UIBarButtonItem!
+    @IBOutlet weak var changeNameButton: UIButton!
     
     
     var currentMon: Mon!
@@ -28,6 +29,7 @@ class MonDetailViewController: UIViewController {
     var monType: String!
     var hatchDate: Date!
     var dataController: DataController!
+    let shareButton = FBSDKShareButton()
     
     
     override func viewDidLoad() {
@@ -37,7 +39,7 @@ class MonDetailViewController: UIViewController {
         nameText.text = "Name: \(currentMon.name!)"
         typeText.text = "Type: \(currentMon.type!)"
         hatchDateText.text = "Date Hatched: \(currentMon.creationDate!)"
-        
+        createShareButton()
     }
     
     @IBAction func mainMenuPressed() {
@@ -67,18 +69,33 @@ class MonDetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func sharePressed(_ sender: Any) {
+//    @IBAction func sharePressed(_ sender: Any) {
 //        let alert = UIAlertController(title: "Share", message: "Share Your Mon!", preferredStyle: .actionSheet)
+//        let imageToShare = UIImage(data: self.currentMon.image!)
+//        let fbImage = FBSDKSharePhoto(image: imageToShare, userGenerated: true)
 //        let facebookShareAction = UIAlertAction(title: "Share on Facebook", style: .default, handler: { (action) in
-//            let post = SLComposeViewController(forServiceType: )
+//            let photo = FBSDKSharePhotoContent()
+//            photo.photos.append(imageToShare)
 //            print("success")
 //        })
 //        alert.addAction(facebookShareAction)
 //        self.present(alert, animated: true, completion: nil)
+//    }
+    
+    func createShareButton() {
         let imageToShare = UIImage(data: self.currentMon.image!)
-        let share: [Any] = [imageToShare!]
-        let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        self.present(activityViewController, animated: true, completion: nil)
+        let fbImage = FBSDKSharePhoto(image: imageToShare!, userGenerated: false)
+        let photo = FBSDKSharePhotoContent()
+        photo.photos = [fbImage!]
+        shareButton.shareContent = photo
+        //FBSDKShareDialog.show(from: self, with: photo, delegate: nil)
+        view.addSubview(shareButton)
+        
+        //set constraints for share button
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.topAnchor.constraint(equalTo: changeNameButton.bottomAnchor, constant: 10).isActive = true
+        shareButton.widthAnchor.constraint(equalTo: changeNameButton.widthAnchor, multiplier: 1.0).isActive = true
+        shareButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        shareButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 }
