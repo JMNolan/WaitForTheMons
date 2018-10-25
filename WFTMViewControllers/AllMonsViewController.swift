@@ -86,6 +86,13 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.setImage(mon: mon)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let imageWidth = view.bounds.width/5.0
+        let imageHeight = imageWidth
+        
+        return CGSize(width: imageWidth, height: imageHeight)
+    }
 }
 
 extension AllMonsViewController {

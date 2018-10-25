@@ -64,23 +64,9 @@ class MonDetailViewController: UIViewController {
             self.currentMon.name = newName
             self.nameText.text = "Name: \(self.currentMon.name!)"
             try? self.dataController.viewContext.save()
-            print("Name Selected")
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
-//    @IBAction func sharePressed(_ sender: Any) {
-//        let alert = UIAlertController(title: "Share", message: "Share Your Mon!", preferredStyle: .actionSheet)
-//        let imageToShare = UIImage(data: self.currentMon.image!)
-//        let fbImage = FBSDKSharePhoto(image: imageToShare, userGenerated: true)
-//        let facebookShareAction = UIAlertAction(title: "Share on Facebook", style: .default, handler: { (action) in
-//            let photo = FBSDKSharePhotoContent()
-//            photo.photos.append(imageToShare)
-//            print("success")
-//        })
-//        alert.addAction(facebookShareAction)
-//        self.present(alert, animated: true, completion: nil)
-//    }
     
     func createShareButton() {
         let imageToShare = UIImage(data: self.currentMon.image!)

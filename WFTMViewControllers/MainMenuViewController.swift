@@ -22,6 +22,11 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserDefaults.standard.bool(forKey: "Show Egg At Launch") {
+            let eggVC = self.storyboard?.instantiateViewController(withIdentifier: "EggDetailViewController") as! EggDetailViewController
+            eggVC.dataController = self.dataController
+            self.present(eggVC, animated: true, completion: nil)
+        }
         
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
@@ -64,8 +69,6 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             return
         }
-        
-        print("Successfully logged into facebook")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

@@ -4,7 +4,6 @@
 //
 //  Created by John Nolan on 8/13/18.
 //  Copyright © 2018 John Nolan. All rights reserved.
-//
 
 import UIKit
 import CoreData
@@ -27,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainMenuViewController = navigationController.topViewController as! MainMenuViewController
         mainMenuViewController.dataController = dataController
         
+        //check if egg is hatching by checking hatch time against
+        if UserDefaults.standard.bool(forKey: "Egg Is Hatching") {
+            backToEgg()
+        }
         return true
     }
     
@@ -97,13 +100,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
+                // TODO: Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
+    //Takes user back to the egg hatch that was in progress when they left the app
+    func backToEgg() {
+        let currentTime = Date()
+        if let lastTime = UserDefaults.standard.object(forKey: "Last Time") {
+            //TODO: determine time difference between now and last time active then compare to remaining time on egg hatch last time active
+            if let remainingTime = UserDefaults.standard.object(forKey: "Time Left") {
+                let timeLeft = remainingTime as! Int
+                let time = currentTime.timeIntervalSince(lastTime as! Date)
+                let difference = Int(time.truncatingRemainder(dividingBy: 60))
+                print("the difference is \(difference)")
+                if timeLeft > difference {
+                    UserDefaults.standard.set(true, forKey: "Show Egg At Launch")
+                    UserDefaults.standard.set(difference, forKey: "New Time")
+                }
+            }
+        }
+    }
 
 }
-
