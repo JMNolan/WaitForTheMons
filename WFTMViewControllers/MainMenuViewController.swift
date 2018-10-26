@@ -16,22 +16,17 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var monsButton: UIButton!
     @IBOutlet weak var eggsButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
-    @IBOutlet weak var soundButton: UIButton!
     
     var dataController: DataController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.bool(forKey: "Show Egg At Launch") {
-            let eggVC = self.storyboard?.instantiateViewController(withIdentifier: "EggDetailViewController") as! EggDetailViewController
-            eggVC.dataController = self.dataController
-            self.present(eggVC, animated: true, completion: nil)
-        }
         
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         view.addSubview(loginButton)
         setFBLoginButtonConstraints(button: loginButton)
+        formatButtonImages()
         
     }
     
@@ -51,16 +46,17 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         //TODO: select the background to appear behind the mon collectionView
     }
     
-    @IBAction func soundButtonPressed() {
-        //TODO: turn off any sound in the game if sound is added
-    }
-    
     func setFBLoginButtonConstraints(button: UIView) {
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: soundButton.bottomAnchor, constant: 60).isActive = true
-        button.widthAnchor.constraint(equalTo: monsButton.widthAnchor, multiplier: 0.75).isActive = true
+        button.topAnchor.constraint(equalTo: backgroundButton.bottomAnchor, constant: 30).isActive = true
+        button.widthAnchor.constraint(equalTo: (monsButton.imageView?.widthAnchor)!, multiplier: 0.75).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    func formatButtonImages() {
+        self.monsButton.imageView?.contentMode = .scaleAspectFill
+        self.eggsButton.imageView?.contentMode = .scaleAspectFill
+        self.backgroundButton.imageView?.contentMode = .scaleAspectFill
     }
     
     //MARK: Facebook Login Button Delegate Methods

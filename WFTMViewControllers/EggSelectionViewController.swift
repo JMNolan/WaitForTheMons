@@ -46,6 +46,10 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         tierTwoEggSource = WFTMModel.levelTwoEggs
         tierThreeEggSource = WFTMModel.levelThreeEggs
         tierFourEggSource = WFTMModel.levelFourEggs
+        
+        //subscribe to orientation change notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadAllCollections), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadAllCollections), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     override func viewDidLoad() {
@@ -54,7 +58,7 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         reloadAllCollections()
     }
     
-    func reloadAllCollections() {
+    @objc func reloadAllCollections() {
         tierOneEggCollectionView.reloadData()
         tierTwoEggCollectionView.reloadData()
         tierThreeEggCollectionView.reloadData()
@@ -83,13 +87,13 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     
     //collection view layout settings
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 90
-        let height = 120
+        let height = collectionView.frame.size.height
+        let width = height*0.75
         
         return CGSize(width: width, height: height)
     }
     
-    //Data Source Methods for collection views
+    // MARK: Data Source Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == tierOneEggCollectionView {
             return tierOneEggSource.count
@@ -107,9 +111,14 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     }
 
     func collectionView (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print("CellForItemAt fired")
         if collectionView == tierOneEggCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierOneEggCell", for: indexPath) as! EggCell
             cell.cellImage.image = tierOneEggSource[indexPath.row].image
+            let height = cell.frame.size.height
+            let width = height * 0.75
+            cell.cellImage.frame.size.height = height
+            cell.cellImage.frame.size.width = width
             cell.eggForCell = tierOneEggSource[indexPath.row]
             return cell
         } else {

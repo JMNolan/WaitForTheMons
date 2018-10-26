@@ -18,6 +18,8 @@ class EggDetailViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var beginHatchButton: UIButton!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     
     // MARK: Properties
     var dataController: DataController!
@@ -46,6 +48,7 @@ class EggDetailViewController: UIViewController {
         eggImageView.image = currentEgg.image
         typeLabel.text = "Type -> \(currentEgg.type!)"
         levelLabel.text = "Level - > \(String(currentEgg.level!))"
+        cancelButton.isEnabled = false
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -62,6 +65,11 @@ class EggDetailViewController: UIViewController {
             beginHatch()
         }
     }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        cancelHatch()
+    }
+    
     
     // MARK: Functions
     
@@ -234,7 +242,20 @@ class EggDetailViewController: UIViewController {
         timer.invalidate()
         enableHatchButton()
         UserDefaults.standard.set(false, forKey: "Egg Is Hatching")
-        //TODO: display message telling user that the hatch failed and upon tapping ok take user back to egg selection view
+        
+        //provide user with an action sheet to notify them that the hatch failed and give them the option of going to select another egg or viewing all mons
+        let alert = UIAlertController(title: "Oops!", message: "Looks like your egg didn't make it. Try another at the egg selection screen.", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "New Egg", style: .default, handler: {action in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+            vc.dataController = self.dataController
+            self.present(vc, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Mons", style: .default, handler: {action in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
+            vc.dataController = self.dataController
+            self.present(vc, animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func beginHatch() {
@@ -242,6 +263,7 @@ class EggDetailViewController: UIViewController {
         timerIsRunning = true
         disableHatchButton()
         UserDefaults.standard.set(true, forKey: "Egg Is Hatching")
+        self.cancelButton.isEnabled = true
     }
     
     @objc func updateTimer() {
@@ -306,7 +328,8 @@ class EggDetailViewController: UIViewController {
         print("Became Active")
         let currentTime = Date()
         if let lastTime = UserDefaults.standard.object(forKey: "Last Time") {
-            //TODO: determine time difference between now and last time active then compare to remaining time on egg hatch last time active
+            
+            //Determines time difference between now and last time active then compare to remaining time on egg hatch last time active
             if let remainingTime = UserDefaults.standard.object(forKey: "Remaining Time") {
                 let timeLeft = remainingTime as! Int
                 let time = currentTime.timeIntervalSince(lastTime as! Date)
