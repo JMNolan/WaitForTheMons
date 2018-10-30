@@ -56,6 +56,12 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         super.viewDidLoad()
         
         reloadAllCollections()
+        
+        //set background from user defaults
+        if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
+            let backgroundName = background as! String
+            view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        }
     }
     
     @objc func reloadAllCollections() {

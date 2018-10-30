@@ -28,6 +28,12 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         setFBLoginButtonConstraints(button: loginButton)
         formatButtonImages()
         
+        //load background from user defaults
+        if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
+            let backgroundName = background as! String
+            view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        }
+        
     }
     
     @IBAction func monsButtonPressed() {
@@ -43,7 +49,35 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func backgroundButtonPressed() {
-        //TODO: select the background to appear behind the mon collectionView
+        
+        //presents alert allowing user to change background of the app
+        let alert = UIAlertController(title: "Select Background", message: "Choose a background image to use throughout the app", preferredStyle: .actionSheet)
+        let actionGrass = UIAlertAction(title: "Grass", style: .default, handler: {action in
+            let backgroundName: String = "grassTile"
+            UserDefaults.standard.set(backgroundName, forKey: WFTMModel.userDefaultStrings.backgroundImageName)
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        })
+        let actionWater = UIAlertAction(title: "Water", style: .default, handler: {action in
+            let backgroundName: String = "waterTile"
+            UserDefaults.standard.set(backgroundName, forKey: WFTMModel.userDefaultStrings.backgroundImageName)
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        })
+        let actionLava = UIAlertAction(title: "Lava", style: .default, handler: {action in
+            let backgroundName: String = "lavaTile1"
+            UserDefaults.standard.set(backgroundName, forKey: WFTMModel.userDefaultStrings.backgroundImageName)
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        })
+        let actionSky = UIAlertAction(title: "Sky", style: .default, handler: {action in
+            let backgroundName: String = "skyTile"
+            UserDefaults.standard.set(backgroundName, forKey: WFTMModel.userDefaultStrings.backgroundImageName)
+            self.view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        })
+        alert.addAction(actionGrass)
+        alert.addAction(actionWater)
+        alert.addAction(actionLava)
+        alert.addAction(actionSky)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setFBLoginButtonConstraints(button: UIView) {

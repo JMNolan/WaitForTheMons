@@ -28,6 +28,12 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
         monCollectionView.delegate = self
         monCollectionView.dataSource = self
         pullMon()
+        
+        //set background from user defaults
+        if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
+            let backgroundName = background as! String
+            view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        }
     }
     
     //MARK: Functions

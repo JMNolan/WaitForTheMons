@@ -50,6 +50,12 @@ class EggDetailViewController: UIViewController {
         typeLabel.text = "Type -> \(currentEgg.type!)"
         levelLabel.text = "Level - > \(String(currentEgg.level!))"
         cancelButton.isEnabled = false
+        
+        //set background from user defaults
+        if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
+            let backgroundName = background as! String
+            view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -60,7 +66,7 @@ class EggDetailViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIApplicationDidBecomeActive , object: nil)
     }
     // MARK: IBActions
-    
+    //TODO: Create back button to return to egg selection.  Could change text on cancel button and enable prior to beginning hatch
     @IBAction func beginHatchTapped() {
         if !timerIsRunning {
             beginHatch()

@@ -40,6 +40,12 @@ class MonDetailViewController: UIViewController {
         typeText.text = "Type: \(currentMon.type!)"
         hatchDateText.text = "Date Hatched: \(currentMon.creationDate!)"
         createShareButton()
+        
+        //set background from user defaults
+        if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
+            let backgroundName = background as! String
+            view.backgroundColor = UIColor(patternImage: UIImage(named: backgroundName)!)
+        }
     }
     
     @IBAction func mainMenuPressed() {

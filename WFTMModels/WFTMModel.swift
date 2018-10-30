@@ -19,7 +19,7 @@ class WFTMModel {
         EggLibrary.levelOneBirdEgg,
         EggLibrary.levelOneInsectEgg,
         EggLibrary.levelOneElectricEgg
-        ]
+    ]
     
     static let levelTwoEggs = [
         EggLibrary.levelTwoFireEgg,
@@ -28,7 +28,7 @@ class WFTMModel {
         EggLibrary.levelTwoBirdEgg,
         EggLibrary.levelTwoInsectEgg,
         EggLibrary.levelTwoElectricEgg
-        ]
+    ]
     
     static let levelThreeEggs = [
         EggLibrary.levelThreeFireEgg,
@@ -37,7 +37,7 @@ class WFTMModel {
         EggLibrary.levelThreeBirdEgg,
         EggLibrary.levelThreeInsectEgg,
         EggLibrary.levelThreeElectricEgg
-        ]
+    ]
     
     static let levelFourEggs = [
         EggLibrary.levelFourFireEgg,
@@ -46,7 +46,7 @@ class WFTMModel {
         EggLibrary.levelFourBirdEgg,
         EggLibrary.levelFourInsectEgg,
         EggLibrary.levelFourElectricEgg
-        ]
+    ]
     
     //strings for user default properties
     struct userDefaultStrings {
@@ -59,6 +59,7 @@ class WFTMModel {
         static var lastEggType: String = "Last Egg Type"
         static var lastEggImage: String = "Last Egg Image"
         static var userLeftApp: String = "User Left App"
+        static var backgroundImageName: String = "Background Image String"
     }
     
     
