@@ -43,4 +43,19 @@ class WFTMModel {
         EggLibrary.levelFourBirdEgg,
         EggLibrary.levelFourInsectEgg
         ]
+    
+    //strings for user default properties
+    struct userDefaultStrings {
+        static var eggIsHatching: String = "Egg Is Hatching"
+        static var showEggAtLaunch: String = "Show Egg At Launch"
+        static var newTime: String = "New Time"
+        static var lastTime: String = "Last Time"
+        static var remainingTime: String = "Remaining Time"
+        static var lastEggLevel: String = "Last Egg Level"
+        static var lastEggType: String = "Last Egg Type"
+        static var lastEggImage: String = "Last Egg Image"
+        static var userLeftApp: String = "User Left App"
+    }
+    
+    
 }

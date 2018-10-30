@@ -111,7 +111,6 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     }
 
     func collectionView (_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("CellForItemAt fired")
         if collectionView == tierOneEggCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierOneEggCell", for: indexPath) as! EggCell
             cell.cellImage.image = tierOneEggSource[indexPath.row].image

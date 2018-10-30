@@ -41,6 +41,7 @@ class EggDetailViewController: UIViewController {
         //Add notification center observers for the app resigning active and becoming active
         NotificationCenter.default.addObserver(self, selector: #selector(resignedActive), name: .UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(becameActive), name: .UIApplicationDidBecomeActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(userLeftApp), name: .UIApplicationDidEnterBackground , object: nil)
         
 //        timeRemaining = determineTime()
         //MARK: ForTesting: Comment out line above here and uncomment line below for a short timer for testing
@@ -241,7 +242,8 @@ class EggDetailViewController: UIViewController {
     func cancelHatch() {
         timer.invalidate()
         enableHatchButton()
-        UserDefaults.standard.set(false, forKey: "Egg Is Hatching")
+        UserDefaults.standard.set(false, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
+        UserDefaults.standard.set(false, forKey: WFTMModel.userDefaultStrings.userLeftApp)
         
         //provide user with an action sheet to notify them that the hatch failed and give them the option of going to select another egg or viewing all mons
         let alert = UIAlertController(title: "Oops!", message: "Looks like your egg didn't make it. Try another at the egg selection screen.", preferredStyle: .actionSheet)
@@ -262,7 +264,7 @@ class EggDetailViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
         timerIsRunning = true
         disableHatchButton()
-        UserDefaults.standard.set(true, forKey: "Egg Is Hatching")
+        UserDefaults.standard.set(true, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
         self.cancelButton.isEnabled = true
     }
     
@@ -271,7 +273,7 @@ class EggDetailViewController: UIViewController {
             timer.invalidate()
             showHatchedMon()
             timerIsRunning = false
-            UserDefaults.standard.set(false, forKey: "Egg Is Hatching")
+            UserDefaults.standard.set(false, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
             self.timeRemaining = 10
             enableHatchButton()
         } else {
@@ -289,7 +291,7 @@ class EggDetailViewController: UIViewController {
     }
     
     func determineTime() -> Int {
-        if !UserDefaults.standard.bool(forKey: "Show Egg At Launch") {
+        if !UserDefaults.standard.bool(forKey: WFTMModel.userDefaultStrings.showEggAtLaunch) {
             if currentEgg.level == 1 {
                 return levelOneTimer
             } else {
@@ -304,7 +306,7 @@ class EggDetailViewController: UIViewController {
                 }
             }
         } else {
-            let remainingTime = UserDefaults.standard.object(forKey: "New Time") as! Int
+            let remainingTime = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.newTime) as! Int
             return remainingTime
         }
     }
@@ -312,46 +314,51 @@ class EggDetailViewController: UIViewController {
     //save information about the current egg, time, and time remaining
     @objc func resignedActive() {
         let currentTime = Date()
-        UserDefaults.standard.set(currentTime, forKey: "Last Time")
-        UserDefaults.standard.set(self.timeRemaining, forKey: "Remaining Time")
+        UserDefaults.standard.set(currentTime, forKey: WFTMModel.userDefaultStrings.lastTime)
+        UserDefaults.standard.set(self.timeRemaining, forKey: WFTMModel.userDefaultStrings.remainingTime)
         if let egg = self.currentEgg {
-            UserDefaults.standard.set(egg.level, forKey:"Last Egg Level")
-            UserDefaults.standard.set(egg.type, forKey:"Last Egg Type")
+            UserDefaults.standard.set(egg.level, forKey: WFTMModel.userDefaultStrings.lastEggLevel)
+            UserDefaults.standard.set(egg.type, forKey: WFTMModel.userDefaultStrings.lastEggType)
             let image = UIImagePNGRepresentation(egg.image)
-            UserDefaults.standard.set(image, forKey:"Last Egg Image")
-            print("App has resigned active")
-            print("\(String(describing: UserDefaults.standard.object(forKey: "Remaining Time")))")
+            UserDefaults.standard.set(image, forKey: WFTMModel.userDefaultStrings.lastEggImage)
         }
     }
     
     @objc func becameActive() {
-        print("Became Active")
-        let currentTime = Date()
-        if let lastTime = UserDefaults.standard.object(forKey: "Last Time") {
-            
-            //Determines time difference between now and last time active then compare to remaining time on egg hatch last time active
-            if let remainingTime = UserDefaults.standard.object(forKey: "Remaining Time") {
-                let timeLeft = remainingTime as! Int
-                let time = currentTime.timeIntervalSince(lastTime as! Date)
-                let difference = Int(time)
-                print("the difference is \(difference)")
-                if timeLeft > difference {
-                    UserDefaults.standard.set(true, forKey: "Egg Is Hatching")
-                    self.timeRemaining -= difference
-                } else {
-                    showHatchedMon()
+        if !UserDefaults.standard.bool(forKey: WFTMModel.userDefaultStrings.userLeftApp) {
+            let currentTime = Date()
+            if let lastTime = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.lastTime) {
+                
+                //Determines time difference between now and last time active then compare to remaining time on egg hatch last time active
+                if let remainingTime = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.remainingTime) {
+                    let timeLeft = remainingTime as! Int
+                    let time = currentTime.timeIntervalSince(lastTime as! Date)
+                    let difference = Int(time)
+                    if timeLeft > difference {
+                        UserDefaults.standard.set(true, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
+                        self.timeRemaining -= difference
+                    } else {
+                        showHatchedMon()
+                    }
                 }
             }
-        }
         
-        if UserDefaults.standard.bool(forKey: "Egg Is Hatching") {
-            let level = UserDefaults.standard.integer(forKey: "Last Egg Level")
-            let type = UserDefaults.standard.object(forKey: "Last Egg Type") as! String
-            let imageData = UserDefaults.standard.object(forKey: "Last Egg Image") as! Data
-            let image = UIImage(data: imageData)
-            let egg = WFTMModel.Egg(level: level, type: type, image: image)
-            self.currentEgg = egg
+            if UserDefaults.standard.bool(forKey: WFTMModel.userDefaultStrings.eggIsHatching) {
+                let level = UserDefaults.standard.integer(forKey: WFTMModel.userDefaultStrings.lastEggLevel)
+                let type = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.lastEggType) as! String
+                let imageData = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.lastEggImage) as! Data
+                let image = UIImage(data: imageData)
+                let egg = WFTMModel.Egg(level: level, type: type, image: image)
+                self.currentEgg = egg
+            }
+        } else {
+            cancelHatch()
         }
+    }
+    
+    //runs when user navigates away from the application
+    @objc func userLeftApp() {
+        UserDefaults.standard.set(true, forKey: WFTMModel.userDefaultStrings.userLeftApp)
     }
     
 }
