@@ -17,7 +17,8 @@ class WFTMModel {
         EggLibrary.levelOnePlantEgg,
         EggLibrary.levelOneWaterEgg,
         EggLibrary.levelOneBirdEgg,
-        EggLibrary.levelOneInsectEgg
+        EggLibrary.levelOneInsectEgg,
+        EggLibrary.levelOneElectricEgg
         ]
     
     static let levelTwoEggs = [
@@ -25,7 +26,8 @@ class WFTMModel {
         EggLibrary.levelTwoPlantEgg,
         EggLibrary.levelTwoWaterEgg,
         EggLibrary.levelTwoBirdEgg,
-        EggLibrary.levelTwoInsectEgg
+        EggLibrary.levelTwoInsectEgg,
+        EggLibrary.levelTwoElectricEgg
         ]
     
     static let levelThreeEggs = [
@@ -33,7 +35,8 @@ class WFTMModel {
         EggLibrary.levelThreePlantEgg,
         EggLibrary.levelThreeWaterEgg,
         EggLibrary.levelThreeBirdEgg,
-        EggLibrary.levelThreeInsectEgg
+        EggLibrary.levelThreeInsectEgg,
+        EggLibrary.levelThreeElectricEgg
         ]
     
     static let levelFourEggs = [
@@ -41,7 +44,8 @@ class WFTMModel {
         EggLibrary.levelFourPlantEgg,
         EggLibrary.levelFourWaterEgg,
         EggLibrary.levelFourBirdEgg,
-        EggLibrary.levelFourInsectEgg
+        EggLibrary.levelFourInsectEgg,
+        EggLibrary.levelFourElectricEgg
         ]
     
     //strings for user default properties

@@ -11,6 +11,7 @@ import UIKit
 
 class EggLibrary {
     
+    //list of all eggs
     static let levelOneFireEgg = WFTMModel.Egg.init(level: 1, type: "Fire", image: #imageLiteral(resourceName: "FireEgg1"))
     static let levelTwoFireEgg = WFTMModel.Egg.init(level: 2, type: "Fire", image: #imageLiteral(resourceName: "FireEgg2"))
     static let levelThreeFireEgg = WFTMModel.Egg.init(level: 3, type: "Fire", image: #imageLiteral(resourceName: "FireEgg3"))
@@ -31,9 +32,8 @@ class EggLibrary {
     static let levelTwoInsectEgg = WFTMModel.Egg.init(level: 2, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg2"))
     static let levelThreeInsectEgg = WFTMModel.Egg.init(level: 3, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg3"))
     static let levelFourInsectEgg = WFTMModel.Egg.init(level: 4, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg4"))
-    //TODO: Create and add images for electric eggs
-    //    static let levelOneElectricEgg = WFTMModel.Egg.init(level: 1, type: "electric", image: )
-    //    static let levelTwoElectricEgg = WFTMModel.Egg.init(level: 2, type: "electric", image: <#T##UIImage!#>)
-    //    static let levelThreeElectricEgg = WFTMModel.Egg.init(level: 3, type: "electric", image: <#T##UIImage!#>)
-    //    static let levelFourElectricEgg = WFTMModel.Egg.init(level: 4, type: "electric", image: <#T##UIImage!#>)
+    static let levelOneElectricEgg = WFTMModel.Egg.init(level: 1, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg1"))
+    static let levelTwoElectricEgg = WFTMModel.Egg.init(level: 2, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg2"))
+    static let levelThreeElectricEgg = WFTMModel.Egg.init(level: 3, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg3"))
+    static let levelFourElectricEgg = WFTMModel.Egg.init(level: 4, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg4"))
 }
