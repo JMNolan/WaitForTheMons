@@ -32,8 +32,8 @@ class EggLibrary {
     static let levelTwoInsectEgg = WFTMModel.Egg.init(level: 2, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg2"))
     static let levelThreeInsectEgg = WFTMModel.Egg.init(level: 3, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg3"))
     static let levelFourInsectEgg = WFTMModel.Egg.init(level: 4, type: "Insect", image: #imageLiteral(resourceName: "InsectEgg4"))
-    static let levelOneElectricEgg = WFTMModel.Egg.init(level: 1, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg1"))
-    static let levelTwoElectricEgg = WFTMModel.Egg.init(level: 2, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg2"))
-    static let levelThreeElectricEgg = WFTMModel.Egg.init(level: 3, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg3"))
-    static let levelFourElectricEgg = WFTMModel.Egg.init(level: 4, type: "electric", image: #imageLiteral(resourceName: "ElectricEgg4"))
+    static let levelOneElectricEgg = WFTMModel.Egg.init(level: 1, type: "Electric", image: #imageLiteral(resourceName: "ElectricEgg1"))
+    static let levelTwoElectricEgg = WFTMModel.Egg.init(level: 2, type: "Electric", image: #imageLiteral(resourceName: "ElectricEgg2"))
+    static let levelThreeElectricEgg = WFTMModel.Egg.init(level: 3, type: "Electric", image: #imageLiteral(resourceName: "ElectricEgg3"))
+    static let levelFourElectricEgg = WFTMModel.Egg.init(level: 4, type: "Electric", image: #imageLiteral(resourceName: "ElectricEgg4"))
 }

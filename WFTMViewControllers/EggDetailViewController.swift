@@ -30,7 +30,6 @@ class EggDetailViewController: UIViewController {
     var timer = Timer()
     var timeRemaining: Int!
     var timerIsRunning = false
-    
     var currentEgg: WFTMModel.Egg!
     var hatchedMon: WFTMModel.Mon!
 
@@ -49,7 +48,7 @@ class EggDetailViewController: UIViewController {
         eggImageView.image = currentEgg.image
         typeLabel.text = "Type -> \(currentEgg.type!)"
         levelLabel.text = "Level - > \(String(currentEgg.level!))"
-        cancelButton.isEnabled = false
+        cancelButton.setTitle("Back", for: .normal)
         
         //set background from user defaults
         if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
@@ -64,17 +63,25 @@ class EggDetailViewController: UIViewController {
         //remove notification center observers that were added in viewDidLoad
         NotificationCenter.default.removeObserver(self, name: .UIApplicationWillResignActive , object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIApplicationDidBecomeActive , object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidEnterBackground , object: nil)
     }
     // MARK: IBActions
     //TODO: Create back button to return to egg selection.  Could change text on cancel button and enable prior to beginning hatch
     @IBAction func beginHatchTapped() {
         if !timerIsRunning {
             beginHatch()
+            cancelButton.titleLabel?.text = "Cancel"
         }
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        cancelHatch()
+        if cancelButton.titleLabel?.text == "Cancel" {
+            cancelHatch()
+        } else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+            vc.dataController = self.dataController
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     
@@ -82,16 +89,12 @@ class EggDetailViewController: UIViewController {
     
     func disableHatchButton() {
         self.beginHatchButton.isEnabled = false
-        DispatchQueue.main.async {
-            self.beginHatchButton.titleLabel?.text = "Hatching..."
-        }
+        self.beginHatchButton.titleLabel?.text = "Hatching..."
     }
     
     func enableHatchButton() {
         self.beginHatchButton.isEnabled = true
-        DispatchQueue.main.async {
-            self.beginHatchButton.titleLabel?.text = "Begin Hatching"
-        }
+        self.beginHatchButton.titleLabel?.text = "Begin Hatching"
     }
     
     //picks random mon from array of mon structs
@@ -315,6 +318,10 @@ class EggDetailViewController: UIViewController {
             let remainingTime = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.newTime) as! Int
             return remainingTime
         }
+    }
+    
+    func backButtonToCancelButton() {
+        self.cancelButton.titleLabel?.text = "Cancel"
     }
     
     //save information about the current egg, time, and time remaining

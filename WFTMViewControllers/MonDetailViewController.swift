@@ -74,7 +74,8 @@ class MonDetailViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func createShareButton() {
+    @objc func createShareButton() {
+//        view.willRemoveSubview(shareButton)
         let imageToShare = UIImage(data: self.currentMon.image!)
         let fbImage = FBSDKSharePhoto(image: imageToShare!, userGenerated: false)
         let photo = FBSDKSharePhotoContent()
@@ -87,7 +88,7 @@ class MonDetailViewController: UIViewController {
         shareButton.translatesAutoresizingMaskIntoConstraints = false
         shareButton.topAnchor.constraint(equalTo: changeNameButton.bottomAnchor, constant: 10).isActive = true
         shareButton.widthAnchor.constraint(equalTo: changeNameButton.widthAnchor, multiplier: 1.0).isActive = true
-        shareButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        shareButton.centerXAnchor.constraint(equalTo: hatchDateText.centerXAnchor).isActive = true
         shareButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 }
