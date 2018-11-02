@@ -48,7 +48,6 @@ class EggDetailViewController: UIViewController {
         eggImageView.image = currentEgg.image
         typeLabel.text = "Type -> \(currentEgg.type!)"
         levelLabel.text = "Level - > \(String(currentEgg.level!))"
-        cancelButton.setTitle("Back", for: .normal)
         
         //set background from user defaults
         if let background = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.backgroundImageName) {
@@ -69,12 +68,12 @@ class EggDetailViewController: UIViewController {
     @IBAction func beginHatchTapped() {
         if !timerIsRunning {
             beginHatch()
-            cancelButton.titleLabel?.text = "Cancel"
+            cancelButton.setImage(UIImage(named: "CancelButton.png"), for: .normal)
         }
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        if cancelButton.titleLabel?.text == "Cancel" {
+        if timerIsRunning {
             cancelHatch()
         } else {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
@@ -87,7 +86,6 @@ class EggDetailViewController: UIViewController {
     // MARK: Functions
     func disableHatchButton() {
         self.beginHatchButton.isEnabled = false
-        self.beginHatchButton.titleLabel?.text = "Hatching..."
     }
     
     func enableHatchButton() {
