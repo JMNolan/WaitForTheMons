@@ -66,7 +66,6 @@ class EggDetailViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .UIApplicationDidEnterBackground , object: nil)
     }
     // MARK: IBActions
-    //TODO: Create back button to return to egg selection.  Could change text on cancel button and enable prior to beginning hatch
     @IBAction func beginHatchTapped() {
         if !timerIsRunning {
             beginHatch()
@@ -86,7 +85,6 @@ class EggDetailViewController: UIViewController {
     
     
     // MARK: Functions
-    
     func disableHatchButton() {
         self.beginHatchButton.isEnabled = false
         self.beginHatchButton.titleLabel?.text = "Hatching..."
