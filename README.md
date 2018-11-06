@@ -31,3 +31,6 @@ The user sees a larger view of the egg they selected as well as a timer showing 
 
 ![Egg Collection View](ReadMeImages/EggDetailSS.png "View where user starts and views their hatch progress.")
 
+## **Testing Instructions**
+The EggDetailViewController contains a comment marked "testing" that shows how to change the timer. By commenting out one line and uncommenting the other, the tester can use a 9 second timer (or whatever number they choose) rather than the standard timers that would be used by standard users.
+
