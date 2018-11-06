@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mll-IG-U9O">
-    <device id="retina4_0" orientation="landscape">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MonDetailViewController" id="BYZ-38-t0r" customClass="MonDetailViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JGb-F1-3Sy">
-                                <rect key="frame" x="0.0" y="276" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tFM-59-jOi"/>
@@ -38,22 +38,22 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AMy-vZ-10a" userLabel="Mon Image">
-                                <rect key="frame" x="20" y="30" width="227" height="224"/>
+                                <rect key="frame" x="16" y="40" width="288" height="199"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Goes Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVp-x2-aBB" userLabel="Name">
-                                <rect key="frame" x="345" y="89" width="131" height="20.5"/>
+                                <rect key="frame" x="94.5" y="249" width="131" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type Goes Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcM-YG-ERr" userLabel="Type">
-                                <rect key="frame" x="349" y="119.5" width="123" height="20.5"/>
+                                <rect key="frame" x="98.5" y="276" width="123" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Hatch Date Goes Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yV-Ui-ehy" userLabel="Hatch Date">
-                                <rect key="frame" x="324.5" y="150" width="171.5" height="20.5"/>
+                                <rect key="frame" x="74.5" y="303" width="171.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -187,40 +187,40 @@
             <objects>
                 <viewController storyboardIdentifier="EggDetailViewController" id="MSd-Hq-8Le" customClass="EggDetailViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9gN-RQ-B7a">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qqv-dA-Qg2">
-                                <rect key="frame" x="20" y="20" width="227" height="224"/>
+                                <rect key="frame" x="16" y="78" width="288" height="255.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FD5-5K-shl">
-                                <rect key="frame" x="70" y="258" width="127.5" height="36"/>
+                                <rect key="frame" x="96.5" y="343.5" width="127.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muc-IP-kmB">
-                                <rect key="frame" x="346" y="71" width="74" height="26.5"/>
+                                <rect key="frame" x="123" y="389.5" width="74" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGk-uU-4L4">
-                                <rect key="frame" x="297.5" y="186" width="170.5" height="32"/>
+                                <rect key="frame" x="32" y="512.5" width="256" height="39.5"/>
                                 <state key="normal" image="BackButton"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="MSd-Hq-8Le" eventType="touchUpInside" id="BvB-Zg-jX5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKm-ip-EDJ">
-                                <rect key="frame" x="297.5" y="144" width="170.5" height="32"/>
+                                <rect key="frame" x="32" y="462.5" width="256" height="40"/>
                                 <state key="normal" image="BeginHatchButton"/>
                                 <connections>
                                     <action selector="beginHatchTapped" destination="MSd-Hq-8Le" eventType="touchUpInside" id="MZ7-De-CHP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level -&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qic-dG-g5e">
-                                <rect key="frame" x="343.5" y="107.5" width="79" height="26.5"/>
+                                <rect key="frame" x="120.5" y="426" width="79" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -391,11 +391,11 @@
             <objects>
                 <viewController storyboardIdentifier="AllMonsViewController" id="hkb-91-kV1" customClass="AllMonsViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Crt-dp-yIO">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-bc-FAo" userLabel="Mon Collection View">
-                                <rect key="frame" x="14" y="32" width="540" height="256"/>
+                                <rect key="frame" x="8" y="67" width="304" height="454"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hPO-sn-KzH">
                                     <size key="itemSize" width="50" height="50"/>
@@ -429,7 +429,7 @@
                                 </cells>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Mons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLC-2z-YvP" userLabel="No Mons Label">
-                                <rect key="frame" x="112.5" y="127" width="343" height="66"/>
+                                <rect key="frame" x="-11.5" y="261" width="343" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="5tz-C6-mOE"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="QjI-Gq-5td"/>
@@ -439,7 +439,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EhQ-k4-58v">
-                                <rect key="frame" x="0.0" y="276" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ANA-jf-zzt"/>
@@ -484,7 +484,7 @@
             <objects>
                 <navigationController id="mll-IG-U9O" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OyV-rK-TWu">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -500,41 +500,48 @@
             <objects>
                 <viewController storyboardIdentifier="MainMenuViewController" id="Jhg-CU-3l4" customClass="MainMenuViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMc-34-Jjk">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0d-Xx-Boc" userLabel="See Mons">
-                                <rect key="frame" x="57" y="110" width="454" height="32"/>
+                                <rect key="frame" x="32" y="142" width="256" height="57"/>
                                 <state key="normal" image="MonsButton"/>
                                 <connections>
                                     <action selector="monsButtonPressed" destination="Jhg-CU-3l4" eventType="touchUpInside" id="Lyt-Kj-CJq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWB-3X-NQX" userLabel="See Eggs">
-                                <rect key="frame" x="57" y="145" width="454" height="32"/>
+                                <rect key="frame" x="32" y="202" width="256" height="56.5"/>
                                 <state key="normal" image="EggsButton"/>
                                 <connections>
                                     <action selector="eggsButtonPressed" destination="Jhg-CU-3l4" eventType="touchUpInside" id="EZI-Qt-OzT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPp-lV-2ZA" userLabel="Turn Background on/off">
-                                <rect key="frame" x="57" y="180" width="454" height="32"/>
+                                <rect key="frame" x="32" y="261.5" width="256" height="57"/>
                                 <state key="normal" image="BackgroundButton"/>
                                 <connections>
                                     <action selector="backgroundButtonPressed" destination="Jhg-CU-3l4" eventType="touchUpInside" id="mDR-RJ-0Vx"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oiD-OS-KlW">
+                                <rect key="frame" x="120" y="423" width="80" height="85"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="width" secondItem="RMc-34-Jjk" secondAttribute="width" multiplier="0.8" id="2Bq-3o-NjH"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="height" secondItem="jWB-3X-NQX" secondAttribute="height" id="9D2-40-15s"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="height" secondItem="b0d-Xx-Boc" secondAttribute="height" id="A5k-xC-d5Y"/>
+                            <constraint firstItem="oiD-OS-KlW" firstAttribute="centerX" secondItem="kX5-af-MrS" secondAttribute="centerX" id="ANQ-TD-6S2"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="top" secondItem="kX5-af-MrS" secondAttribute="top" constant="78" id="EEO-82-Tdk"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="centerX" secondItem="b0d-Xx-Boc" secondAttribute="centerX" id="KwZ-Vi-DQM"/>
+                            <constraint firstItem="oiD-OS-KlW" firstAttribute="top" secondItem="jPp-lV-2ZA" secondAttribute="bottom" constant="104.5" id="S7l-qp-PwS"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="centerX" secondItem="jWB-3X-NQX" secondAttribute="centerX" id="bw3-v0-mnz"/>
+                            <constraint firstItem="oiD-OS-KlW" firstAttribute="height" secondItem="RMc-34-Jjk" secondAttribute="height" multiplier="0.15" id="c7h-io-h9Q"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="centerX" secondItem="kX5-af-MrS" secondAttribute="centerX" id="d6q-2m-GGo"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="width" secondItem="b0d-Xx-Boc" secondAttribute="width" id="eDG-JL-NU2"/>
+                            <constraint firstItem="oiD-OS-KlW" firstAttribute="width" secondItem="RMc-34-Jjk" secondAttribute="width" multiplier="0.25" id="heK-JY-d8N"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="top" secondItem="b0d-Xx-Boc" secondAttribute="bottom" constant="3" id="oZx-cg-daW"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="width" secondItem="jWB-3X-NQX" secondAttribute="width" id="piG-dD-V43"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="height" secondItem="RMc-34-Jjk" secondAttribute="height" multiplier="0.1" id="zO8-qv-5Sx"/>
@@ -546,6 +553,7 @@
                     <connections>
                         <outlet property="backgroundButton" destination="jPp-lV-2ZA" id="Yr9-Hx-uno"/>
                         <outlet property="eggsButton" destination="jWB-3X-NQX" id="WJt-SR-Bw1"/>
+                        <outlet property="loginActivityIndicator" destination="oiD-OS-KlW" id="gQw-zC-mh0"/>
                         <outlet property="monsButton" destination="b0d-Xx-Boc" id="Gpk-Mt-cAV"/>
                     </connections>
                 </viewController>
@@ -558,20 +566,20 @@
             <objects>
                 <viewController storyboardIdentifier="EggSelectionViewController" id="dXT-J1-RUU" customClass="EggSelectionViewController" customModule="Wait_For_The_Mons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4mW-ep-Do3">
-                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aeP-xp-cT1" userLabel="Tier One Collection And Label">
-                                <rect key="frame" x="5" y="57.5" width="493" height="48"/>
+                                <rect key="frame" x="5" y="77.5" width="282" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AdP-PW-14T" userLabel="Tier One Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="85"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Bl-Wf-skW" userLabel="Tier One Eggs">
-                                        <rect key="frame" x="95" y="0.0" width="398" height="48"/>
+                                        <rect key="frame" x="58" y="0.0" width="224" height="85"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vJN-iK-afl">
                                             <size key="itemSize" width="120" height="120"/>
@@ -581,14 +589,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" misplaced="YES" reuseIdentifier="tierOneEggCell" id="kBJ-aW-YSq" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-36" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="-17.5" width="120" height="120"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUc-9m-U0i" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="126.5" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -607,16 +615,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UCh-Yp-fU6" userLabel="Tier Two Collection And Label">
-                                <rect key="frame" x="5" y="110.5" width="493" height="48"/>
+                                <rect key="frame" x="5" y="167.5" width="282" height="85.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-kM-Fcx" userLabel="Tier Two Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="85.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-IW-68x" userLabel="Tier Two Eggs">
-                                        <rect key="frame" x="95" y="0.0" width="398" height="48"/>
+                                        <rect key="frame" x="58" y="0.0" width="224" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oyK-Lv-k5w">
                                             <size key="itemSize" width="120" height="120"/>
@@ -626,14 +634,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierTwoEggCell" id="uIl-7K-YZM" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-36" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="-17.5" width="120" height="120"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-8u-E47" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="124" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="161" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -652,16 +660,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-71-UAh" userLabel="Tier Three Collection And Label">
-                                <rect key="frame" x="5" y="163.5" width="493" height="48"/>
+                                <rect key="frame" x="5" y="258" width="282" height="85"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90I-VZ-iSA">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="85"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZRA-8X-bzc" userLabel="Tier Three Eggs">
-                                        <rect key="frame" x="95" y="0.0" width="398" height="48"/>
+                                        <rect key="frame" x="58" y="0.0" width="224" height="85"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SQX-ln-9Gt">
                                             <size key="itemSize" width="120" height="120"/>
@@ -671,14 +679,14 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierThreeEggCell" id="lvv-EY-G7S" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-36" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="-17.5" width="120" height="120"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-oT-RKQ" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="123.5" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="160.5" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -697,16 +705,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FHg-Zs-wF9" userLabel="Tier Four Collection And Label">
-                                <rect key="frame" x="5" y="216.5" width="493" height="48"/>
+                                <rect key="frame" x="5" y="348" width="282" height="85.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ox6-tt-bWl">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="85.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="O8r-0b-eLd" userLabel="Tier Four Eggs">
-                                        <rect key="frame" x="95" y="0.0" width="398" height="48"/>
+                                        <rect key="frame" x="58" y="0.0" width="224" height="85.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vft-Cl-cok">
                                             <size key="itemSize" width="120" height="120"/>
@@ -716,7 +724,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="tierFourEggCell" id="wUN-Y4-tq2" customClass="EggCell" customModule="Wait_For_The_Mons" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="-36" width="120" height="120"/>
+                                                <rect key="frame" x="0.0" y="-17.5" width="120" height="120"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
@@ -742,7 +750,7 @@
                                 </subviews>
                             </stackView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UAo-xK-9tl">
-                                <rect key="frame" x="0.0" y="276" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3pG-3Z-Gjf"/>
@@ -761,7 +769,7 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select An Egg To Begin Hatching!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eZ-yv-pV8" userLabel="Title">
-                                <rect key="frame" x="30" y="20" width="454" height="20.5"/>
+                                <rect key="frame" x="5" y="40" width="256" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -16,6 +16,7 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var monsButton: UIButton!
     @IBOutlet weak var eggsButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
+    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     
     var dataController: DataController!
     
@@ -26,6 +27,7 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self
         view.addSubview(loginButton)
         setFBLoginButtonConstraints(button: loginButton)
+        loginActivityIndicator.isHidden = true
         formatButtonImages()
         
         //load background from user defaults
@@ -95,10 +97,19 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     //MARK: Facebook Login Button Delegate Methods
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        self.loginActivityIndicator.isHidden = false
+        
         if error != nil {
             print(error)
+            self.loginActivityIndicator.isHidden = true
             return
         }
+        
+        if result != nil {
+            self.loginActivityIndicator.isHidden = true
+        }
+        
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
