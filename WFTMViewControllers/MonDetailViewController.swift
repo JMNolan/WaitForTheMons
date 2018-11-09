@@ -47,16 +47,13 @@ class MonDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func mainMenuPressed() {
-        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
-        mainMenuVC.dataController = self.dataController
-        self.present(mainMenuVC, animated: true, completion: nil)
-    }
-    
     @IBAction func allMonsPressed() {
-        let allMonsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
-        allMonsVC.dataController = self.dataController
-        self.present(allMonsVC, animated: true, completion: nil)
+        if WFTMModel.allMonsInstantiated {
+            performSegue(withIdentifier: "UnwindToAllMons", sender: self)
+        } else {
+            WFTMModel.allMonsInstantiated = true
+            performSegue(withIdentifier: "ToAllMons", sender: self)
+        }
     }
     
     @IBAction func changeNamePressed(_ sender: Any) {
@@ -71,6 +68,18 @@ class MonDetailViewController: UIViewController {
             try? self.dataController.viewContext.save()
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mainMenuVC = segue.destination as? MainMenuViewController {
+            WFTMModel.allMonsInstantiated = false
+            WFTMModel.eggSelectionInstantiated = false
+            mainMenuVC.dataController = self.dataController
+        }
+        
+        if let allMonsVC = segue.destination as? AllMonsViewController {
+            allMonsVC.dataController = self.dataController
+        }
     }
     
     @objc func createShareButton() {

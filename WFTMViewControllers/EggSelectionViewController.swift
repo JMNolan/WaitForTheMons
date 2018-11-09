@@ -25,6 +25,7 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     var tierThreeEggSource = [WFTMModel.Egg]()
     var tierFourEggSource = [WFTMModel.Egg]()
     var dataController: DataController!
+    var selectedEgg: WFTMModel.Egg!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -65,23 +66,44 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         tierFourEggCollectionView.reloadData()
     }
     
-    func loadEggDetailView(currentEgg: WFTMModel.Egg) {
-        let newVC = self.storyboard?.instantiateViewController(withIdentifier: "EggDetailViewController") as! EggDetailViewController
-        newVC.currentEgg = currentEgg
-        newVC.dataController = self.dataController
-        self.present(newVC, animated: true, completion: nil)
-    }
-    
-    @IBAction func mainMenuButtonPressed(_ sender: Any) {
-        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
-        mainMenuVC.dataController = self.dataController
-        self.present(mainMenuVC, animated: true, completion: nil)
-    }
-    
     @IBAction func monsButtonPressed(_ sender: Any) {
-        let allMonsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
-        allMonsVC.dataController = self.dataController
-        self.present(allMonsVC, animated: true, completion: nil)
+        if WFTMModel.allMonsInstantiated {
+            WFTMModel.eggSelectionInstantiated = false
+            performSegue(withIdentifier: "UnwindToAllMons", sender: self)
+        } else {
+            WFTMModel.eggSelectionInstantiated = true
+            performSegue(withIdentifier: "ToAllMons", sender: self)
+        }
+    }
+//    @IBAction func monsButtonPressed(_ sender: Any) {
+//        print("MONS pressed")
+//        if WFTMModel.allMonsInstantiated {
+//            WFTMModel.eggSelectionInstantiated = false
+//            performSegue(withIdentifier: "UnwindToAllMons", sender: self)
+//        } else {
+//            WFTMModel.eggSelectionInstantiated = true
+//            performSegue(withIdentifier: "ToAllMons", sender: self)
+//        }
+//    }
+    
+    @IBAction func unwindToEggSelection(_ sender: UIStoryboardSegue) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mainMenuVC = segue.destination as? MainMenuViewController {
+            mainMenuVC.dataController = self.dataController
+            WFTMModel.eggSelectionInstantiated = false
+            WFTMModel.allMonsInstantiated = false
+        }
+        
+        if let allMonsVC = segue.destination as? AllMonsViewController {
+            allMonsVC.dataController = self.dataController
+        }
+        
+        if let eggDetailVC = segue.destination as? EggDetailViewController {
+            eggDetailVC.dataController = self.dataController
+            eggDetailVC.currentEgg = self.selectedEgg
+        }
     }
     
     //called in viewDidLoad to set the delegatea and datasource of each collection view
@@ -149,19 +171,19 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tierOneEggCollectionView {
-            let egg = self.tierOneEggSource[indexPath.row]
-            loadEggDetailView(currentEgg: egg)
+            self.selectedEgg = self.tierOneEggSource[indexPath.row]
+            performSegue(withIdentifier: "ToEggDetail", sender: self)
         } else {
             if collectionView == self.tierTwoEggCollectionView {
-                let egg = self.tierTwoEggSource[indexPath.row]
-                loadEggDetailView(currentEgg: egg)
+                self.selectedEgg = self.tierTwoEggSource[indexPath.row]
+                performSegue(withIdentifier: "ToEggDetail", sender: self)
             } else {
                 if collectionView == self.tierThreeEggCollectionView {
-                    let egg = self.tierThreeEggSource[indexPath.row]
-                    loadEggDetailView(currentEgg: egg)
+                    self.selectedEgg = self.tierThreeEggSource[indexPath.row]
+                    performSegue(withIdentifier: "ToEggDetail", sender: self)
                 } else {
-                    let egg = self.tierFourEggSource[indexPath.row]
-                    loadEggDetailView(currentEgg: egg)
+                    self.selectedEgg = self.tierFourEggSource[indexPath.row]
+                    performSegue(withIdentifier: "ToEggDetail", sender: self)
                 }
             }
         }

@@ -25,13 +25,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tFM-59-jOi"/>
                                     <barButtonItem title="Main Menu" id="PG1-WW-bn2" userLabel="Main Menu Button">
                                         <connections>
-                                            <action selector="mainMenuPressed" destination="BYZ-38-t0r" id="4Tv-SC-Uw9"/>
+                                            <segue destination="HcY-2s-D1g" kind="unwind" unwindAction="unwindToMainMenu:" id="vOm-P8-Pii"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="k6Z-WS-D5o"/>
                                     <barButtonItem title="Mons" id="VG1-de-vue" userLabel="Mons Button">
                                         <connections>
-                                            <action selector="allMonsPressed" destination="BYZ-38-t0r" id="LUk-Vg-AKc"/>
+                                            <action selector="allMonsPressed" destination="BYZ-38-t0r" id="aMM-7c-HWL"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="dHY-JK-SDl"/>
@@ -121,14 +121,14 @@
                                 <exclude reference="yMT-Ct-dTJ"/>
                                 <exclude reference="ykc-ni-V00"/>
                                 <exclude reference="97v-PV-yZL"/>
+                                <exclude reference="4fw-Tj-Eah"/>
+                                <exclude reference="ESG-hs-caV"/>
                                 <exclude reference="M5b-0q-ipl"/>
                                 <exclude reference="e39-Sq-a1A"/>
                                 <exclude reference="BZS-9k-Tpt"/>
                                 <exclude reference="ZbG-eY-r4M"/>
                                 <exclude reference="jZi-gP-JxC"/>
                                 <exclude reference="sSg-0a-hCQ"/>
-                                <exclude reference="4fw-Tj-Eah"/>
-                                <exclude reference="ESG-hs-caV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -147,6 +147,11 @@
                                 <include reference="97v-PV-yZL"/>
                                 <exclude reference="MEg-KR-Puz"/>
                                 <exclude reference="k1d-y4-Eov"/>
+                                <include reference="4fw-Tj-Eah"/>
+                                <include reference="ESG-hs-caV"/>
+                                <exclude reference="GKV-Xk-itA"/>
+                                <exclude reference="QHi-ix-nOC"/>
+                                <exclude reference="S8U-aU-wA0"/>
                                 <exclude reference="Boo-Bi-r44"/>
                                 <include reference="M5b-0q-ipl"/>
                                 <include reference="e39-Sq-a1A"/>
@@ -160,11 +165,6 @@
                                 <include reference="jZi-gP-JxC"/>
                                 <exclude reference="nYA-mJ-Ryj"/>
                                 <exclude reference="sSg-0a-hCQ"/>
-                                <include reference="4fw-Tj-Eah"/>
-                                <include reference="ESG-hs-caV"/>
-                                <exclude reference="GKV-Xk-itA"/>
-                                <exclude reference="QHi-ix-nOC"/>
-                                <exclude reference="S8U-aU-wA0"/>
                             </mask>
                         </variation>
                     </view>
@@ -176,11 +176,13 @@
                         <outlet property="monImage" destination="AMy-vZ-10a" id="iaC-A8-HHu"/>
                         <outlet property="nameText" destination="cVp-x2-aBB" id="UQ9-8N-SY3"/>
                         <outlet property="typeText" destination="LcM-YG-ERr" id="DoT-IQ-DTo"/>
+                        <segue destination="HcY-2s-D1g" kind="unwind" identifier="UnwindToAllMons" unwindAction="unwindToAllMons:" id="kYb-SQ-uwo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="HcY-2s-D1g" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="953.87323943661977" y="-225"/>
+            <point key="canvasLocation" x="1174" y="-225"/>
         </scene>
         <!--Egg Detail View Controller-->
         <scene sceneID="V4u-F0-2eN">
@@ -295,17 +297,11 @@
                                 <exclude reference="BHz-VB-rmC"/>
                                 <exclude reference="DA7-xU-NbE"/>
                                 <exclude reference="P2U-ec-YzX"/>
-                                <exclude reference="05f-LE-jTc"/>
-                                <exclude reference="F6S-cU-9kv"/>
-                                <exclude reference="Jh8-Ew-AXb"/>
-                                <exclude reference="Me8-lL-wrC"/>
-                                <exclude reference="hYj-pI-1Ug"/>
-                                <exclude reference="iyj-Jh-eKJ"/>
-                                <exclude reference="nPN-lx-AEP"/>
-                                <exclude reference="ra2-X3-2Hg"/>
-                                <exclude reference="wQv-a6-UHq"/>
                                 <exclude reference="l8G-zA-BBo"/>
                                 <exclude reference="zLe-gX-ocl"/>
+                                <exclude reference="tBE-IT-QnT"/>
+                                <exclude reference="gMt-gS-0sL"/>
+                                <exclude reference="s1E-on-HFi"/>
                                 <exclude reference="07L-7L-GKQ"/>
                                 <exclude reference="KJv-yP-1ya"/>
                                 <exclude reference="UZd-ax-lSa"/>
@@ -315,9 +311,15 @@
                                 <exclude reference="oEf-Ke-BXd"/>
                                 <exclude reference="ouk-P6-Nqp"/>
                                 <exclude reference="uYM-Eu-qzI"/>
-                                <exclude reference="tBE-IT-QnT"/>
-                                <exclude reference="gMt-gS-0sL"/>
-                                <exclude reference="s1E-on-HFi"/>
+                                <exclude reference="05f-LE-jTc"/>
+                                <exclude reference="F6S-cU-9kv"/>
+                                <exclude reference="Jh8-Ew-AXb"/>
+                                <exclude reference="Me8-lL-wrC"/>
+                                <exclude reference="hYj-pI-1Ug"/>
+                                <exclude reference="iyj-Jh-eKJ"/>
+                                <exclude reference="nPN-lx-AEP"/>
+                                <exclude reference="ra2-X3-2Hg"/>
+                                <exclude reference="wQv-a6-UHq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -333,19 +335,17 @@
                                 <exclude reference="awD-jP-TeR"/>
                                 <exclude reference="dtm-ki-9zc"/>
                                 <exclude reference="gYs-zM-ZMH"/>
-                                <exclude reference="05f-LE-jTc"/>
-                                <exclude reference="0ey-VL-sCt"/>
-                                <include reference="F6S-cU-9kv"/>
-                                <include reference="Jh8-Ew-AXb"/>
-                                <exclude reference="Me8-lL-wrC"/>
-                                <exclude reference="Qqf-bY-Jhy"/>
-                                <exclude reference="nPN-lx-AEP"/>
-                                <include reference="ra2-X3-2Hg"/>
-                                <include reference="wQv-a6-UHq"/>
                                 <exclude reference="gMy-0s-Q7D"/>
                                 <include reference="l8G-zA-BBo"/>
                                 <exclude reference="oMK-5f-M6p"/>
                                 <include reference="zLe-gX-ocl"/>
+                                <exclude reference="Hib-3H-7QX"/>
+                                <exclude reference="ZQ9-FV-mBl"/>
+                                <include reference="tBE-IT-QnT"/>
+                                <exclude reference="SDt-jw-vAF"/>
+                                <include reference="gMt-gS-0sL"/>
+                                <include reference="s1E-on-HFi"/>
+                                <exclude reference="t8h-tN-tXJ"/>
                                 <exclude reference="07L-7L-GKQ"/>
                                 <include reference="KJv-yP-1ya"/>
                                 <exclude reference="UZd-ax-lSa"/>
@@ -355,21 +355,23 @@
                                 <exclude reference="qBZ-mG-dKk"/>
                                 <exclude reference="stC-Gv-tZK"/>
                                 <exclude reference="uYM-Eu-qzI"/>
-                                <exclude reference="Hib-3H-7QX"/>
-                                <exclude reference="ZQ9-FV-mBl"/>
-                                <include reference="tBE-IT-QnT"/>
-                                <exclude reference="SDt-jw-vAF"/>
-                                <include reference="gMt-gS-0sL"/>
-                                <include reference="s1E-on-HFi"/>
-                                <exclude reference="t8h-tN-tXJ"/>
+                                <exclude reference="05f-LE-jTc"/>
+                                <exclude reference="0ey-VL-sCt"/>
+                                <include reference="F6S-cU-9kv"/>
+                                <include reference="Jh8-Ew-AXb"/>
+                                <exclude reference="Me8-lL-wrC"/>
+                                <exclude reference="Qqf-bY-Jhy"/>
+                                <exclude reference="nPN-lx-AEP"/>
+                                <include reference="ra2-X3-2Hg"/>
+                                <include reference="wQv-a6-UHq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="hYj-pI-1Ug"/>
-                                <include reference="iyj-Jh-eKJ"/>
                                 <include reference="dao-fP-bsb"/>
                                 <include reference="lrv-zZ-G7x"/>
+                                <include reference="hYj-pI-1Ug"/>
+                                <include reference="iyj-Jh-eKJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -380,11 +382,12 @@
                         <outlet property="levelLabel" destination="qic-dG-g5e" id="bER-Tm-lbY"/>
                         <outlet property="timerLabel" destination="FD5-5K-shl" id="OYS-Tr-mED"/>
                         <outlet property="typeLabel" destination="Muc-IP-kmB" id="4Hh-Z5-hF1"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ToMonDetail" id="tg1-8L-63k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbh-WB-PCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952.81690140845069" y="-999.375"/>
+            <point key="canvasLocation" x="1838" y="-1182"/>
         </scene>
         <!--All Mons View Controller-->
         <scene sceneID="gCv-DJ-2JC">
@@ -445,7 +448,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ANA-jf-zzt"/>
                                     <barButtonItem title="Main Menu" id="r2Y-tG-4UP" userLabel="Main Menu Button">
                                         <connections>
-                                            <action selector="mainMenuButtonPressed:" destination="hkb-91-kV1" id="gPI-Hb-y0a"/>
+                                            <segue destination="1Eo-th-fFw" kind="unwind" unwindAction="unwindToMainMenu:" id="Juq-i9-qrh"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2BE-Za-cTh"/>
@@ -473,9 +476,13 @@
                     <connections>
                         <outlet property="monCollectionView" destination="TXm-bc-FAo" id="4hB-iZ-Wza"/>
                         <outlet property="noMonsLabel" destination="iLC-2z-YvP" id="LiA-CH-XBo"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="ToMonDetail" id="zib-is-czs"/>
+                        <segue destination="dXT-J1-RUU" kind="presentation" identifier="ToEggSelection" id="tqq-Pi-HDR"/>
+                        <segue destination="1Eo-th-fFw" kind="unwind" identifier="UnwindToEggSelection" unwindAction="unwindToEggSelection:" id="TqY-Ws-ehB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C55-KP-ESF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1Eo-th-fFw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="165.59999999999999" y="-224.4377811094453"/>
         </scene>
@@ -547,11 +554,13 @@
                         <outlet property="backgroundButton" destination="jPp-lV-2ZA" id="Yr9-Hx-uno"/>
                         <outlet property="eggsButton" destination="jWB-3X-NQX" id="WJt-SR-Bw1"/>
                         <outlet property="monsButton" destination="b0d-Xx-Boc" id="Gpk-Mt-cAV"/>
+                        <segue destination="hkb-91-kV1" kind="presentation" identifier="ToAllMons" id="dxQ-cD-B1V"/>
+                        <segue destination="dXT-J1-RUU" kind="presentation" identifier="ToEggSelection" id="D1b-Jl-cYB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWv-pa-y3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-737" y="-224"/>
+            <point key="canvasLocation" x="-834" y="-225"/>
         </scene>
         <!--Egg Selection View Controller-->
         <scene sceneID="WTd-Si-jXY">
@@ -588,7 +597,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kUc-9m-U0i" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="163.5" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="126.5" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -633,7 +642,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dFK-8u-E47" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="161" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="124" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -678,7 +687,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mae-oT-RKQ" userLabel="Egg Image">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160.5" height="120"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="123.5" height="120"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -748,13 +757,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3pG-3Z-Gjf"/>
                                     <barButtonItem title="Main Menu" id="sO9-8x-Koi" userLabel="Main Menu Button">
                                         <connections>
-                                            <action selector="mainMenuButtonPressed:" destination="dXT-J1-RUU" id="TD0-ms-Ez8"/>
+                                            <segue destination="R18-5d-D5e" kind="unwind" unwindAction="unwindToMainMenu:" id="Ymm-k8-zf0"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="lEQ-mi-0rh"/>
                                     <barButtonItem title="Mons" id="fg8-vJ-WYs" userLabel="Mons Button">
                                         <connections>
-                                            <action selector="monsButtonPressed:" destination="dXT-J1-RUU" id="0fn-Tc-aAf"/>
+                                            <action selector="monsButtonPressed:" destination="dXT-J1-RUU" id="Ryu-dW-ePN"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="iA9-0b-NMa"/>
@@ -806,11 +815,15 @@
                         <outlet property="tierOneEggCollectionView" destination="8Bl-Wf-skW" id="8Sg-6k-jnd"/>
                         <outlet property="tierThreeEggCollectionView" destination="ZRA-8X-bzc" id="XMn-Wy-syw"/>
                         <outlet property="tierTwoEggCollectionView" destination="jFf-IW-68x" id="gx3-Cr-1Rh"/>
+                        <segue destination="MSd-Hq-8Le" kind="presentation" identifier="ToEggDetail" id="Cw6-VG-nwW"/>
+                        <segue destination="hkb-91-kV1" kind="presentation" identifier="ToAllMons" id="ZAt-bd-BqO"/>
+                        <segue destination="R18-5d-D5e" kind="unwind" identifier="UnwindToAllMons" unwindAction="unwindToAllMons:" id="Hrd-bu-NRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67m-V8-uDR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="R18-5d-D5e" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="165.59999999999999" y="-998.05097451274366"/>
+            <point key="canvasLocation" x="834" y="-1182"/>
         </scene>
     </scenes>
     <resources>
@@ -821,4 +834,9 @@
         <image name="EggsButton" width="300" height="50"/>
         <image name="MonsButton" width="300" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tqq-Pi-HDR"/>
+        <segue reference="ZAt-bd-BqO"/>
+        <segue reference="zib-is-czs"/>
+    </inferredMetricsTieBreakers>
 </document>

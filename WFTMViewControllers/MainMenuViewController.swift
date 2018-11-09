@@ -22,6 +22,10 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set variable to indicate whether or not AllMonsViewController has been instantiated
+        WFTMModel.allMonsInstantiated = false
+        WFTMModel.eggSelectionInstantiated = false
+        
         let loginButton = FBSDKLoginButton()
         loginButton.delegate = self
         view.addSubview(loginButton)
@@ -37,15 +41,17 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func monsButtonPressed() {
-        let monsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
-        monsVC.dataController = self.dataController
-        self.present(monsVC, animated: true, completion: nil)
+//        let monsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
+//        monsVC.dataController = self.dataController
+//        self.present(monsVC, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "ToAllMons", sender: self)
     }
     
     @IBAction func eggsButtonPressed() {
-        let eggsVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
-        eggsVC.dataController = self.dataController
-        self.present(eggsVC, animated: true, completion: nil)
+//        let eggsVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+//        eggsVC.dataController = self.dataController
+//        self.present(eggsVC, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "ToEggSelection", sender: self)
     }
     
     @IBAction func backgroundButtonPressed() {
@@ -78,6 +84,19 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         alert.addAction(actionSky)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindToMainMenu(_ sender: UIStoryboardSegue) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let allMonsVC = segue.destination as? AllMonsViewController {
+            allMonsVC.dataController = self.dataController
+        }
+        
+        if let eggSelectionVC = segue.destination as? EggSelectionViewController {
+            eggSelectionVC.dataController = self.dataController
+        }
     }
     
     func setFBLoginButtonConstraints(button: UIView) {

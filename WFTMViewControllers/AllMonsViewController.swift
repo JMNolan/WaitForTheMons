@@ -21,6 +21,7 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
     var fetchedResultsController: NSFetchedResultsController<Mon>!
     var monCount: Int!
     var blockOperations: [BlockOperation] = []
+    var selectedMon: Mon!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,26 +57,42 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
     }
     
-    @IBAction func mainMenuButtonPressed(_ sender: Any) {
-        let mainMenuVC = self.storyboard?.instantiateViewController(withIdentifier: "MainMenuViewController") as! MainMenuViewController
-        mainMenuVC.dataController = self.dataController
-        self.present(mainMenuVC, animated: true, completion: nil)
-    }
-    
     @IBAction func eggsButtonPressed(_ sender: Any) {
-        let eggSelectionVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
-        eggSelectionVC.dataController = self.dataController
-        self.present(eggSelectionVC, animated: true, completion: nil)
+        print("EGGS pressed")
+        if WFTMModel.eggSelectionInstantiated {
+            WFTMModel.allMonsInstantiated = false
+            performSegue(withIdentifier: "UnwindToEggSelection", sender: self)
+        } else {
+            WFTMModel.allMonsInstantiated = true
+            performSegue(withIdentifier: "ToEggSelection", sender: self)
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let mainMenuVC = segue.destination as? MainMenuViewController {
+            mainMenuVC.dataController = self.dataController
+            WFTMModel.allMonsInstantiated = false
+            WFTMModel.eggSelectionInstantiated = false
+        }
+        
+        if let monDetailVC = segue.destination as? MonDetailViewController {
+            monDetailVC.dataController = self.dataController
+            monDetailVC.currentMon = self.selectedMon
+        }
+        
+        if let eggSelectionVC = segue.destination as? EggSelectionViewController {
+            eggSelectionVC.dataController = self.dataController
+        }
+    }
+    
+    @IBAction func unwindToAllMons(_ sender: UIStoryboardSegue) {
+    }
     
     //MARK: Collection View Data Source Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let mon = fetchedResultsController.object(at: indexPath)
-        let monDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MonDetailViewController") as! MonDetailViewController
-        monDetailVC.dataController = self.dataController
-        monDetailVC.currentMon = mon
-        self.present(monDetailVC, animated: true, completion: nil)
+        self.selectedMon = fetchedResultsController.object(at: indexPath)
+        WFTMModel.allMonsInstantiated = true
+        performSegue(withIdentifier: "ToMonDetail", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

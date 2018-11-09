@@ -11,6 +11,9 @@ import UIKit
 
 class WFTMModel {
     
+    static var allMonsInstantiated: Bool!
+    static var eggSelectionInstantiated: Bool!
+    
     //Egg arrays to populate egg collection views in EggSelectionViewController
     static let levelOneEggs = [
         EggLibrary.levelOneFireEgg ,
