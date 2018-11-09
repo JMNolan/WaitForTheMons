@@ -34,10 +34,9 @@ The user sees a larger view of the egg they selected as well as a timer showing 
 ## **Build Instructions**
 Testers will need to install the FBSDK via CocoaPods. The instructions to do so are as follows:
 1. Add the following lines to the Podfile:
-
-pod 'FacebookCore'
-pod 'FacebookLogin'
-pod 'FacebookShare'
+   1. pod 'FacebookCore'
+   2. pod 'FacebookLogin'
+   3. pod 'FacebookShare'
 
 2. Run "pod install"
 
