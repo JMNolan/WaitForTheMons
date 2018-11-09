@@ -60,9 +60,7 @@ class EggDetailViewController: UIViewController {
         super.viewDidDisappear(true)
         
         //remove notification center observers that were added in viewDidLoad
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationWillResignActive , object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidBecomeActive , object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIApplicationDidEnterBackground , object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     // MARK: IBActions
     @IBAction func beginHatchTapped() {

@@ -524,24 +524,17 @@
                                     <action selector="backgroundButtonPressed" destination="Jhg-CU-3l4" eventType="touchUpInside" id="mDR-RJ-0Vx"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="oiD-OS-KlW">
-                                <rect key="frame" x="120" y="423" width="80" height="85"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="width" secondItem="RMc-34-Jjk" secondAttribute="width" multiplier="0.8" id="2Bq-3o-NjH"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="height" secondItem="jWB-3X-NQX" secondAttribute="height" id="9D2-40-15s"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="height" secondItem="b0d-Xx-Boc" secondAttribute="height" id="A5k-xC-d5Y"/>
-                            <constraint firstItem="oiD-OS-KlW" firstAttribute="centerX" secondItem="kX5-af-MrS" secondAttribute="centerX" id="ANQ-TD-6S2"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="top" secondItem="kX5-af-MrS" secondAttribute="top" constant="78" id="EEO-82-Tdk"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="centerX" secondItem="b0d-Xx-Boc" secondAttribute="centerX" id="KwZ-Vi-DQM"/>
-                            <constraint firstItem="oiD-OS-KlW" firstAttribute="top" secondItem="jPp-lV-2ZA" secondAttribute="bottom" constant="104.5" id="S7l-qp-PwS"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="centerX" secondItem="jWB-3X-NQX" secondAttribute="centerX" id="bw3-v0-mnz"/>
-                            <constraint firstItem="oiD-OS-KlW" firstAttribute="height" secondItem="RMc-34-Jjk" secondAttribute="height" multiplier="0.15" id="c7h-io-h9Q"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="centerX" secondItem="kX5-af-MrS" secondAttribute="centerX" id="d6q-2m-GGo"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="width" secondItem="b0d-Xx-Boc" secondAttribute="width" id="eDG-JL-NU2"/>
-                            <constraint firstItem="oiD-OS-KlW" firstAttribute="width" secondItem="RMc-34-Jjk" secondAttribute="width" multiplier="0.25" id="heK-JY-d8N"/>
                             <constraint firstItem="jWB-3X-NQX" firstAttribute="top" secondItem="b0d-Xx-Boc" secondAttribute="bottom" constant="3" id="oZx-cg-daW"/>
                             <constraint firstItem="jPp-lV-2ZA" firstAttribute="width" secondItem="jWB-3X-NQX" secondAttribute="width" id="piG-dD-V43"/>
                             <constraint firstItem="b0d-Xx-Boc" firstAttribute="height" secondItem="RMc-34-Jjk" secondAttribute="height" multiplier="0.1" id="zO8-qv-5Sx"/>
@@ -553,7 +546,6 @@
                     <connections>
                         <outlet property="backgroundButton" destination="jPp-lV-2ZA" id="Yr9-Hx-uno"/>
                         <outlet property="eggsButton" destination="jWB-3X-NQX" id="WJt-SR-Bw1"/>
-                        <outlet property="loginActivityIndicator" destination="oiD-OS-KlW" id="gQw-zC-mh0"/>
                         <outlet property="monsButton" destination="b0d-Xx-Boc" id="Gpk-Mt-cAV"/>
                     </connections>
                 </viewController>

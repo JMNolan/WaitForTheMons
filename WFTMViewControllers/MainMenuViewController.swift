@@ -16,7 +16,6 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var monsButton: UIButton!
     @IBOutlet weak var eggsButton: UIButton!
     @IBOutlet weak var backgroundButton: UIButton!
-    @IBOutlet weak var loginActivityIndicator: UIActivityIndicatorView!
     
     var dataController: DataController!
     
@@ -27,7 +26,6 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         loginButton.delegate = self
         view.addSubview(loginButton)
         setFBLoginButtonConstraints(button: loginButton)
-        loginActivityIndicator.isHidden = true
         formatButtonImages()
         
         //load background from user defaults
@@ -96,17 +94,29 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     //MARK: Facebook Login Button Delegate Methods
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
+        //present an alert to the user and cancel the login attempt if no network connection is available
+        if !NetworkCheck.isConnectedToNetwork(){
+            let alert = UIAlertController(title: "Network Connection Error", message: "It appears your device is not connected to the network.  Please check your connection and try again.", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        //show network activity indicator and allow user to continue if network connection is available
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        return true
+    }
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        self.loginActivityIndicator.isHidden = false
-        
         if error != nil {
             print(error)
-            self.loginActivityIndicator.isHidden = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            let alert = UIAlertController(title: "Login Failed", message: "The attempt to login to the Facebook account has failed. Please check that your username and password are correct and try again later.", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
             return
         }
         
         if result != nil {
-            self.loginActivityIndicator.isHidden = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
         
         

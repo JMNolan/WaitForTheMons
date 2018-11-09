@@ -29,17 +29,11 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        //set collection view delegates
-        tierOneEggCollectionView.delegate = self
-        tierTwoEggCollectionView.delegate = self
-        tierThreeEggCollectionView.delegate = self
-        tierFourEggCollectionView.delegate = self
-        
-        //set collection views' data sources
-        tierOneEggCollectionView.dataSource = self
-        tierTwoEggCollectionView.dataSource = self
-        tierThreeEggCollectionView.dataSource = self
-        tierFourEggCollectionView.dataSource = self
+        //set delegate and data source for all four collection views
+        setDelegateAndDataSource(collectionView: tierOneEggCollectionView)
+        setDelegateAndDataSource(collectionView: tierTwoEggCollectionView)
+        setDelegateAndDataSource(collectionView: tierThreeEggCollectionView)
+        setDelegateAndDataSource(collectionView: tierFourEggCollectionView)
         
         //populate collection view datasources
         tierOneEggSource = WFTMModel.levelOneEggs
@@ -90,6 +84,11 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         self.present(allMonsVC, animated: true, completion: nil)
     }
     
+    //called in viewDidLoad to set the delegatea and datasource of each collection view
+    func setDelegateAndDataSource(collectionView: UICollectionView) {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
     
     //collection view layout settings
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

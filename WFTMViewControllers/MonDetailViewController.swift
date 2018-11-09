@@ -14,7 +14,6 @@ import FBSDKShareKit
 class MonDetailViewController: UIViewController {
     
     // MARK: IBOutlets
-    
     @IBOutlet weak var monImage: UIImageView!
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var typeText: UILabel!
@@ -75,13 +74,12 @@ class MonDetailViewController: UIViewController {
     }
     
     @objc func createShareButton() {
-//        view.willRemoveSubview(shareButton)
         let imageToShare = UIImage(data: self.currentMon.image!)
         let fbImage = FBSDKSharePhoto(image: imageToShare!, userGenerated: false)
         let photo = FBSDKSharePhotoContent()
         photo.photos = [fbImage!]
         shareButton.shareContent = photo
-        //FBSDKShareDialog.show(from: self, with: photo, delegate: nil)
+        
         view.addSubview(shareButton)
         
         //set constraints for share button
