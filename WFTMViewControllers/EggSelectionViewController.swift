@@ -91,18 +91,18 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mainMenuVC = segue.destination as? MainMenuViewController {
-            mainMenuVC.dataController = self.dataController
+            mainMenuVC.dataController = dataController
             WFTMModel.eggSelectionInstantiated = false
             WFTMModel.allMonsInstantiated = false
         }
         
         if let allMonsVC = segue.destination as? AllMonsViewController {
-            allMonsVC.dataController = self.dataController
+            allMonsVC.dataController = dataController
         }
         
         if let eggDetailVC = segue.destination as? EggDetailViewController {
-            eggDetailVC.dataController = self.dataController
-            eggDetailVC.currentEgg = self.selectedEgg
+            eggDetailVC.dataController = dataController
+            eggDetailVC.currentEgg = selectedEgg
         }
     }
     
@@ -125,10 +125,10 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
         if collectionView == tierOneEggCollectionView {
             return tierOneEggSource.count
         } else {
-            if collectionView == self.tierTwoEggCollectionView {
+            if collectionView == tierTwoEggCollectionView {
                 return tierTwoEggSource.count
             } else {
-                if collectionView == self.tierThreeEggCollectionView {
+                if collectionView == tierThreeEggCollectionView {
                     return tierThreeEggSource.count
                 } else {
                     return tierFourEggSource.count
@@ -148,13 +148,13 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
             cell.eggForCell = tierOneEggSource[indexPath.row]
             return cell
         } else {
-            if collectionView == self.tierTwoEggCollectionView {
+            if collectionView == tierTwoEggCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierTwoEggCell", for: indexPath) as! EggCell
                 cell.cellImage.image = tierTwoEggSource[indexPath.row].image
                 cell.eggForCell = tierTwoEggSource[indexPath.row]
                 return cell
             } else {
-                if collectionView == self.tierThreeEggCollectionView {
+                if collectionView == tierThreeEggCollectionView {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tierThreeEggCell", for: indexPath) as! EggCell
                     cell.cellImage.image = tierThreeEggSource[indexPath.row].image
                     cell.eggForCell = tierThreeEggSource[indexPath.row]
@@ -171,18 +171,18 @@ class EggSelectionViewController: UIViewController, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == tierOneEggCollectionView {
-            self.selectedEgg = self.tierOneEggSource[indexPath.row]
+            selectedEgg = tierOneEggSource[indexPath.row]
             performSegue(withIdentifier: "ToEggDetail", sender: self)
         } else {
-            if collectionView == self.tierTwoEggCollectionView {
-                self.selectedEgg = self.tierTwoEggSource[indexPath.row]
+            if collectionView == tierTwoEggCollectionView {
+                selectedEgg = tierTwoEggSource[indexPath.row]
                 performSegue(withIdentifier: "ToEggDetail", sender: self)
             } else {
-                if collectionView == self.tierThreeEggCollectionView {
-                    self.selectedEgg = self.tierThreeEggSource[indexPath.row]
+                if collectionView == tierThreeEggCollectionView {
+                    selectedEgg = tierThreeEggSource[indexPath.row]
                     performSegue(withIdentifier: "ToEggDetail", sender: self)
                 } else {
-                    self.selectedEgg = self.tierFourEggSource[indexPath.row]
+                    selectedEgg = tierFourEggSource[indexPath.row]
                     performSegue(withIdentifier: "ToEggDetail", sender: self)
                 }
             }

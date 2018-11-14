@@ -67,23 +67,23 @@ class MonDetailViewController: UIViewController {
             self.nameText.text = "Name: \(self.currentMon.name!)"
             try? self.dataController.viewContext.save()
         }))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mainMenuVC = segue.destination as? MainMenuViewController {
             WFTMModel.allMonsInstantiated = false
             WFTMModel.eggSelectionInstantiated = false
-            mainMenuVC.dataController = self.dataController
+            mainMenuVC.dataController = dataController
         }
         
         if let allMonsVC = segue.destination as? AllMonsViewController {
-            allMonsVC.dataController = self.dataController
+            allMonsVC.dataController = dataController
         }
     }
     
     @objc func createShareButton() {
-        let imageToShare = UIImage(data: self.currentMon.image!)
+        let imageToShare = UIImage(data: currentMon.image!)
         let fbImage = FBSDKSharePhoto(image: imageToShare!, userGenerated: false)
         let photo = FBSDKSharePhotoContent()
         photo.photos = [fbImage!]

@@ -15,6 +15,6 @@ class MonCell: UICollectionViewCell {
     var mon: Mon!
     
     func setImage(mon: Mon) {
-        self.cellImage.image = UIImage(data: mon.image!)
+        cellImage.image = UIImage(data: mon.image!)
     }
 }

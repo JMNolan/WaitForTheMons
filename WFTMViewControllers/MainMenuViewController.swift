@@ -41,17 +41,11 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     @IBAction func monsButtonPressed() {
-//        let monsVC = self.storyboard?.instantiateViewController(withIdentifier: "AllMonsViewController") as! AllMonsViewController
-//        monsVC.dataController = self.dataController
-//        self.present(monsVC, animated: true, completion: nil)
-        self.performSegue(withIdentifier: "ToAllMons", sender: self)
+        performSegue(withIdentifier: "ToAllMons", sender: self)
     }
     
     @IBAction func eggsButtonPressed() {
-//        let eggsVC = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
-//        eggsVC.dataController = self.dataController
-//        self.present(eggsVC, animated: true, completion: nil)
-        self.performSegue(withIdentifier: "ToEggSelection", sender: self)
+        performSegue(withIdentifier: "ToEggSelection", sender: self)
     }
     
     @IBAction func backgroundButtonPressed() {
@@ -83,7 +77,7 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         alert.addAction(actionLava)
         alert.addAction(actionSky)
         
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func unwindToMainMenu(_ sender: UIStoryboardSegue) {
@@ -91,11 +85,11 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let allMonsVC = segue.destination as? AllMonsViewController {
-            allMonsVC.dataController = self.dataController
+            allMonsVC.dataController = dataController
         }
         
         if let eggSelectionVC = segue.destination as? EggSelectionViewController {
-            eggSelectionVC.dataController = self.dataController
+            eggSelectionVC.dataController = dataController
         }
     }
     
@@ -107,9 +101,9 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func formatButtonImages() {
-        self.monsButton.imageView?.contentMode = .scaleAspectFill
-        self.eggsButton.imageView?.contentMode = .scaleAspectFill
-        self.backgroundButton.imageView?.contentMode = .scaleAspectFill
+        monsButton.imageView?.contentMode = .scaleAspectFill
+        eggsButton.imageView?.contentMode = .scaleAspectFill
+        backgroundButton.imageView?.contentMode = .scaleAspectFill
     }
     
     //MARK: Facebook Login Button Delegate Methods
@@ -117,7 +111,11 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
         //present an alert to the user and cancel the login attempt if no network connection is available
         if !NetworkCheck.isConnectedToNetwork(){
             let alert = UIAlertController(title: "Network Connection Error", message: "It appears your device is not connected to the network.  Please check your connection and try again.", preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: { action in
+                self.dismiss(animated: true, completion: nil)
+                })
+            alert.addAction(dismissAction)
+            present(alert, animated: true, completion: nil)
             return false
         }
         //show network activity indicator and allow user to continue if network connection is available
@@ -130,7 +128,7 @@ class MainMenuViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(error)
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             let alert = UIAlertController(title: "Login Failed", message: "The attempt to login to the Facebook account has failed. Please check that your username and password are correct and try again later.", preferredStyle: .alert)
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
             return
         }
         

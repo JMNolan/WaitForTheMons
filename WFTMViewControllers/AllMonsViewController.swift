@@ -46,11 +46,11 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
         fetchedResultsController.delegate = self
         do {
             try fetchedResultsController.performFetch()
-            self.monCount = fetchedResultsController.fetchedObjects?.count
-            if self.monCount > 0 {
-                self.noMonsLabel.isHidden = true
+            monCount = fetchedResultsController.fetchedObjects?.count
+            if monCount > 0 {
+                noMonsLabel.isHidden = true
             } else {
-                self.noMonsLabel.isHidden = false
+                noMonsLabel.isHidden = false
             }
         } catch {
             print("error fetching results from fetchedResultsController")
@@ -70,18 +70,18 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mainMenuVC = segue.destination as? MainMenuViewController {
-            mainMenuVC.dataController = self.dataController
+            mainMenuVC.dataController = dataController
             WFTMModel.allMonsInstantiated = false
             WFTMModel.eggSelectionInstantiated = false
         }
         
         if let monDetailVC = segue.destination as? MonDetailViewController {
-            monDetailVC.dataController = self.dataController
-            monDetailVC.currentMon = self.selectedMon
+            monDetailVC.dataController = dataController
+            monDetailVC.currentMon = selectedMon
         }
         
         if let eggSelectionVC = segue.destination as? EggSelectionViewController {
-            eggSelectionVC.dataController = self.dataController
+            eggSelectionVC.dataController = dataController
         }
     }
     
@@ -90,13 +90,13 @@ class AllMonsViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     //MARK: Collection View Data Source Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedMon = fetchedResultsController.object(at: indexPath)
+        selectedMon = fetchedResultsController.object(at: indexPath)
         WFTMModel.allMonsInstantiated = true
         performSegue(withIdentifier: "ToMonDetail", sender: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let count = self.monCount {
+        if let count = monCount {
             return count
         } else {
             return 0
@@ -125,7 +125,7 @@ extension AllMonsViewController {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         monCollectionView.performBatchUpdates({
-            for operation in self.blockOperations {
+            for operation in blockOperations {
                 operation.start()
             }
         }, completion: {(completed) in

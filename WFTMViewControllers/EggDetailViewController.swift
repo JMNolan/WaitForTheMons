@@ -74,21 +74,21 @@ class EggDetailViewController: UIViewController {
         if timerIsRunning {
             cancelHatch()
         } else {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
-            vc.dataController = self.dataController
-            self.present(vc, animated: true, completion: nil)
+            let vc = storyboard?.instantiateViewController(withIdentifier: "EggSelectionViewController") as! EggSelectionViewController
+            vc.dataController = dataController
+            present(vc, animated: true, completion: nil)
         }
     }
     
     
     // MARK: Functions
     func disableHatchButton() {
-        self.beginHatchButton.isEnabled = false
+        beginHatchButton.isEnabled = false
     }
     
     func enableHatchButton() {
-        self.beginHatchButton.isEnabled = true
-        self.beginHatchButton.titleLabel?.text = "Begin Hatching"
+        beginHatchButton.isEnabled = true
+        beginHatchButton.titleLabel?.text = "Begin Hatching"
     }
     
     //picks random mon from array of mon structs
@@ -224,8 +224,8 @@ class EggDetailViewController: UIViewController {
     
     //Create Mon, save it to persistent store, and pass it to MonDetailViewController to be shown as hatched mon
     func showHatchedMon() {
-        let monDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MonDetailViewController") as! MonDetailViewController
-        let hatchedMon = hatchRandomMon(level: self.currentEgg.level, type: self.currentEgg.type)
+        let monDetailVC = storyboard?.instantiateViewController(withIdentifier: "MonDetailViewController") as! MonDetailViewController
+        let hatchedMon = hatchRandomMon(level: currentEgg.level, type: currentEgg.type)
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
@@ -237,7 +237,7 @@ class EggDetailViewController: UIViewController {
         newMon.type = hatchedMon.type!
         newMon.image = hatchedMon.image!
         try? dataController.viewContext.save()
-        monDetailVC.dataController = self.dataController
+        monDetailVC.dataController = dataController
         monDetailVC.currentMon = newMon
         present(monDetailVC, animated: true, completion: nil)
     }
@@ -264,11 +264,11 @@ class EggDetailViewController: UIViewController {
     }
     
     func beginHatch() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(self.updateTimer)), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
         timerIsRunning = true
         disableHatchButton()
         UserDefaults.standard.set(true, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
-        self.cancelButton.isEnabled = true
+        cancelButton.isEnabled = true
     }
     
     @objc func updateTimer() {
@@ -277,7 +277,7 @@ class EggDetailViewController: UIViewController {
             showHatchedMon()
             timerIsRunning = false
             UserDefaults.standard.set(false, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
-            self.timeRemaining = 10
+            timeRemaining = 10
             enableHatchButton()
         } else {
             timeRemaining! -= 1
@@ -315,15 +315,15 @@ class EggDetailViewController: UIViewController {
     }
     
     func backButtonToCancelButton() {
-        self.cancelButton.titleLabel?.text = "Cancel"
+        cancelButton.titleLabel?.text = "Cancel"
     }
     
     //save information about the current egg, time, and time remaining
     @objc func resignedActive() {
         let currentTime = Date()
         UserDefaults.standard.set(currentTime, forKey: WFTMModel.userDefaultStrings.lastTime)
-        UserDefaults.standard.set(self.timeRemaining, forKey: WFTMModel.userDefaultStrings.remainingTime)
-        if let egg = self.currentEgg {
+        UserDefaults.standard.set(timeRemaining, forKey: WFTMModel.userDefaultStrings.remainingTime)
+        if let egg = currentEgg {
             UserDefaults.standard.set(egg.level, forKey: WFTMModel.userDefaultStrings.lastEggLevel)
             UserDefaults.standard.set(egg.type, forKey: WFTMModel.userDefaultStrings.lastEggType)
             let image = UIImagePNGRepresentation(egg.image)
@@ -343,7 +343,7 @@ class EggDetailViewController: UIViewController {
                     let difference = Int(time)
                     if timeLeft > difference {
                         UserDefaults.standard.set(true, forKey: WFTMModel.userDefaultStrings.eggIsHatching)
-                        self.timeRemaining -= difference
+                        timeRemaining -= difference
                     } else {
                         showHatchedMon()
                     }
@@ -356,7 +356,7 @@ class EggDetailViewController: UIViewController {
                 let imageData = UserDefaults.standard.object(forKey: WFTMModel.userDefaultStrings.lastEggImage) as! Data
                 let image = UIImage(data: imageData)
                 let egg = WFTMModel.Egg(level: level, type: type, image: image)
-                self.currentEgg = egg
+                currentEgg = egg
             }
         } else {
             cancelHatch()
